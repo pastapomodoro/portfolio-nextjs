@@ -5,6 +5,7 @@ type Project = {
   href?: string
   imageSrc?: string
   description?: string
+  objectPosition?: string
 }
 
 const projects: Project[] = [
@@ -12,7 +13,8 @@ const projects: Project[] = [
     title: "Kawaii OD 2025",
     href: "https://www.behance.net/gallery/226585309/Kawaii-OD-2025",
     imageSrc: "/kawaiiOD.PNG",
-    description: "Brand Design project"
+    description: "Brand Design project",
+    objectPosition: "40% center"
   },
   { title: "Project 2" },
   { title: "Project 3" },
@@ -37,7 +39,7 @@ export default function Page() {
             <div className="rounded-lg border border-border bg-card overflow-hidden">
               <div className="aspect-video bg-muted">
                 {project.imageSrc ? (
-                  <Image src={project.imageSrc} alt={project.title} width={1920} height={1080} className="h-full w-full object-cover" />
+                  <Image src={project.imageSrc} alt={project.title} width={1920} height={1080} className="h-full w-full object-cover" style={{ objectPosition: project.objectPosition }} />
                 ) : null}
               </div>
               <div className="p-4">

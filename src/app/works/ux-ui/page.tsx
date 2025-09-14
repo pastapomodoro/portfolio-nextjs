@@ -17,7 +17,7 @@ const projects: Project[] = [
     imageSrc: "/miku/Cattura.PNG",
     description: "Concept UI for Korg ESX1 × Hatsune Miku",
     objectPositionClass: "",
-    objectPosition: "center 20%"
+    objectPosition: "center 8%"
   },
   {
     title: "MINIDEV – memo recorder portatile",
