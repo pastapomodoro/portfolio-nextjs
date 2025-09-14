@@ -31,7 +31,7 @@ export function Tiles({
 	return (
 		<div
 			className={cn("relative z-0 flex w-full h-full justify-center", className)}
-			style={{ "--tile": "hsl(var(--primary))", backgroundColor: "black" } as React.CSSProperties}
+			style={{ "--tile": "hsl(var(--primary))", backgroundColor: "black" } satisfies React.CSSProperties as React.CSSProperties}
 		>
 			{rowsArray.map((_, i) => (
 				<motion.div
