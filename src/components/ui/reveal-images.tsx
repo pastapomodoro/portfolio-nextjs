@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
 import Link from "next/link"
 
 interface ImageSource {
@@ -14,9 +14,7 @@ interface ShowImageListItemProps {
   images: [ImageSource, ImageSource]
 }
 
-function RevealImageListItem({ text, href, images }: ShowImageListItemProps) {
-  const container = "hidden" // disable hover image containers
-  const effect = "hidden"
+function RevealImageListItem({ text, href }: ShowImageListItemProps) {
 
   return (
     <Link href={href} target="_blank" rel="noopener noreferrer" className="group block" prefetch={false}>
@@ -43,6 +41,20 @@ function RevealImageList() {
         {
           src: "https://images.unsplash.com/photo-1567262439850-1d4dc1fefdd0?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
           alt: "Branding 2",
+        },
+      ],
+    },
+    {
+      text: "Editorial Design",
+      href: "/works/editorial-design",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1481437642641-2f0ae875f836?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+          alt: "Editorial 1",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+          alt: "Editorial 2",
         },
       ],
     },

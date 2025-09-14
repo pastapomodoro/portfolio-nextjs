@@ -1,7 +1,7 @@
 "use client"
 
 import { gsap } from "gsap"
-import { useEffect, useRef, useState, useCallback, useMemo } from "react"
+import { useEffect, useRef, useState, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import type { Points, ShaderMaterial } from "three"
 import type * as THREE from "three"

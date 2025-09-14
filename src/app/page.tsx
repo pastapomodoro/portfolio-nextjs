@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Star, Award, Users, Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Star, Award, Users } from "lucide-react";
 import Link from "next/link";
 import { FallingPattern } from "@/components/ui/falling-pattern";
 import OrbitingSkills from "@/components/ui/orbiting-skills";
