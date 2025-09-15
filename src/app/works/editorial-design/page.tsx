@@ -37,7 +37,7 @@ export default function Page() {
         {projects.map((project, i) => {
           const card = (
             <div className="rounded-lg border border-border bg-card overflow-hidden">
-              <div className="aspect-video bg-muted">
+              <div className="aspect-[16/9] bg-muted">
                 {project.imageSrc ? (
                   <Image src={project.imageSrc} alt={project.title} width={1920} height={1080} className="h-full w-full object-cover" />
                 ) : null}
