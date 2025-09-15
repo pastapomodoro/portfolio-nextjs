@@ -16,6 +16,18 @@ const projects: Project[] = [
     imageSrc: "/kawaiiOD.PNG",
     description: "Brand Design project",
     objectPosition: "40% center"
+  },
+  {
+    title: "BloodMoon - Visual Identity",
+    href: "https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity",
+    imageSrc: "/bloodmoon.png",
+    description: "Visual Identity project"
+  },
+  {
+    title: "Fuji Rock - Restyling Brand Identity",
+    href: "https://www.behance.net/gallery/234644025/Fuji-Rock-Brand-Identity-e-Restyling?share=1",
+    imageSrc: "/fuji.png",
+    description: "Brand Identity Restyling"
   }
 ]
 

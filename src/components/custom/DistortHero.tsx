@@ -203,9 +203,9 @@ function NoiseParticles({ count, mousePosition }: NoiseParticlesProps) {
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={particles.positions} itemSize={3} />
-        <bufferAttribute attach="attributes-color" count={count} array={particles.colors} itemSize={3} />
-        <bufferAttribute attach="attributes-size" count={count} array={particles.sizes} itemSize={1} />
+        <bufferAttribute attach="attributes-position" args={[particles.positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[particles.colors, 3]} />
+        <bufferAttribute attach="attributes-size" args={[particles.sizes, 1]} />
       </bufferGeometry>
       <pointsMaterial size={0.02} vertexColors transparent opacity={0.8} sizeAttenuation blending={2} />
     </points>

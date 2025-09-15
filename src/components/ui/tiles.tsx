@@ -4,6 +4,8 @@ import React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
+type CSSVars = React.CSSProperties & { "--tile"?: string }
+
 interface TilesProps {
 	className?: string
 	rows?: number
@@ -31,7 +33,7 @@ export function Tiles({
 	return (
 		<div
 			className={cn("relative z-0 flex w-full h-full justify-center", className)}
-			style={{ "--tile": "hsl(var(--primary))", backgroundColor: "black" } satisfies React.CSSProperties as React.CSSProperties}
+			style={{ "--tile": "hsl(var(--primary))", backgroundColor: "black" } as CSSVars}
 		>
 			{rowsArray.map((_, i) => (
 				<motion.div

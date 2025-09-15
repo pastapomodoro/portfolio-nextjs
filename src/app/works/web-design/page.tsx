@@ -32,6 +32,8 @@ const projects: Project[] = [
     href: "https://hell-pulse-visuals.vercel.app/",
     imageSrc: "/hellpulse.png",
     description: "Generatore di visual musicali"
+
+    
   }
 ]
 
