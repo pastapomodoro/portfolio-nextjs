@@ -6,6 +6,7 @@ type Project = {
   href?: string
   imageSrc?: string
   description?: string
+  imageClassName?: string
 }
 
 const projects: Project[] = [
@@ -19,7 +20,8 @@ const projects: Project[] = [
     title: "PromptRunners WebApp",
     href: "https://www.figma.com/proto/XHgM7Rf43tH4im3FLxf0Zc/newletter?node-id=42-170&starting-point-node-id=44%3A171&t=AgUUJCQWXgdtYMrV-1",
     imageSrc: "/promptrunners.png",
-    description: "WebApp per gestione newsletter e prompt workflows"
+    description: "WebApp per gestione newsletter e prompt workflows",
+    imageClassName: "object-contain object-center p-6 md:p-10"
   },
   {
     title: "Studio Veritas",
@@ -43,6 +45,7 @@ export default function Page() {
       <h1 className="text-4xl font-bold text-foreground">Web Design</h1>
       <div className="mt-6 flex gap-3">
         <Link href="/works/ux-ui" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Ux/Ui</Link>
+        np
         <Link href="/works/branding" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Brand design</Link>
         <Link href="/works/web-design" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Web Design</Link>
         <Link href="/works/editorial-design" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Editorial design</Link>
@@ -54,7 +57,7 @@ export default function Page() {
             <div className="rounded-lg border border-border bg-card overflow-hidden">
               <div className="aspect-[16/9] bg-muted">
                 {project.imageSrc ? (
-                  <Image src={project.imageSrc} alt={project.title} width={1920} height={1080} className="h-full w-full object-cover" />
+                  <Image src={project.imageSrc} alt={project.title} width={1920} height={1080} className={`h-full w-full ${project.imageClassName ?? "object-cover"}`} />
                 ) : null}
               </div>
               <div className="p-4">

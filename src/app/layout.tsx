@@ -31,8 +31,8 @@ export default function RootLayout({
         <NavBar
           items={[
             { name: "Home", url: "/#home", iconKey: "home" },
-            { name: "About", url: "/#about", iconKey: "user" },
             { name: "Projects", url: "/#projects", iconKey: "briefcase" },
+            { name: "About", url: "/#about", iconKey: "user" },
             { name: "Resume", url: "/resume", iconKey: "fileText" },
           ]}
         />

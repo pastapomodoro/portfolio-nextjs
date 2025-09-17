@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Standard */}
-      <section id="home" className="relative min-h-screen px-4 md:px-6 bg-background border-b border-border overflow-hidden flex items-center">
+      <section id="home" className="relative min-h-[70vh] md:min-h-screen px-4 md:px-6 bg-background border-b border-border overflow-hidden flex items-center">
         <FallingPattern className="absolute inset-0 z-0 opacity-60" color="var(--primary)" backgroundColor="var(--background)" />
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Sliding Banner Divider */}
-      <SlidingBanner height="h-80 md:h-[26rem]" speed={20} />
+      <SlidingBanner height="h-80 md:h-[26rem]" speed={10} />
 
       {/* Projects entry (Reveal list) */}
       <section id="projects" className="relative py-16 px-6 bg-black">
