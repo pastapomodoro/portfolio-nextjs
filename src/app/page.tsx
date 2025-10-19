@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Star, Award, Users } from "lucide-react";
 import Link from "next/link";
 import { FallingPattern } from "@/components/ui/falling-pattern";
 import OrbitingSkills from "@/components/ui/orbiting-skills";
@@ -71,20 +70,6 @@ export default function Home() {
               <p className="text-gray-300 text-lg leading-relaxed mb-6 whitespace-pre-line">{`Hi, I’m Eugenio, 22, based in Verona. I am a Graphic Design & Art Direction student passionate about UX/UI, motion graphics, branding, and innovative visual storytelling. I enjoy exploring the intersection of creativity and technology, using traditional design skills alongside AI-driven tools to enhance ideas and workflows.`}</p>
               <p className="text-gray-300 text-lg leading-relaxed mb-8 whitespace-pre-line">{`I approach each project with curiosity and adaptability, aiming to create solutions that are both functional and visually engaging, while constantly learning new techniques and staying updated on design trends. My work reflects a balance between aesthetic impact and strategic thinking, driven by a desire to communicate ideas clearly and effectively.`}</p>
 
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-green-400">
-                  <Users className="w-5 h-5" />
-                  <span className="text-sm">Clienti Soddisfatti</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-400">
-                  <Award className="w-5 h-5" />
-                  <span className="text-sm">Progetti Completati</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-400">
-                  <Star className="w-5 h-5" />
-                  <span className="text-sm">Anni di Esperienza</span>
-                </div>
-              </div>
 
               <div className="mt-8">
                 <SocialLinks
@@ -160,6 +145,7 @@ export default function Home() {
                       <div className="flex flex-wrap gap-2">
                         <Badge variant="secondary" className="text-xs">Blender</Badge>
                         <Badge variant="secondary" className="text-xs">Hunyuan3D</Badge>
+                        <Badge variant="secondary" className="text-xs">Meshy AI</Badge>
                       </div>
                     </div>
 

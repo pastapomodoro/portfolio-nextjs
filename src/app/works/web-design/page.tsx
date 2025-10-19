@@ -45,7 +45,6 @@ export default function Page() {
       <h1 className="text-4xl font-bold text-foreground">Web Design</h1>
       <div className="mt-6 flex gap-3">
         <Link href="/works/ux-ui" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Ux/Ui</Link>
-        np
         <Link href="/works/branding" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Brand design</Link>
         <Link href="/works/web-design" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Web Design</Link>
         <Link href="/works/editorial-design" className="rounded-md px-3 py-2 text-sm bg-primary text-black hover:bg-primary/90">Editorial design</Link>

@@ -5,7 +5,7 @@ export default function Page() {
       <p className="text-foreground/70 mt-2">Download my CV or view highlights below.</p>
       <div className="mt-8 space-y-4">
         <a
-          href="/Eugenio-Bellini-Resume.pdf"
+          href="/cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-foreground hover:bg-accent"
