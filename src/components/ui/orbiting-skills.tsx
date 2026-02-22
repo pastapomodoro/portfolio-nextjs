@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState, memo } from "react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 type IconType =
@@ -96,14 +97,15 @@ const SkillIcon = memo(({ type }: SkillIconProps) => {
     <div className="relative w-full h-full">
       <div className="absolute inset-0 rounded-full" style={{ backgroundColor: `${data.color}20` }} />
       {!failed && (
-        <img
+        <Image
           src={src}
           alt={type}
-          className="w-full h-full relative z-10"
-          decoding="async"
+          width={48}
+          height={48}
+          className="w-full h-full relative z-10 object-contain"
+          unoptimized
           loading="lazy"
           referrerPolicy="no-referrer"
-          crossOrigin="anonymous"
           onLoad={() => setLoaded(true)}
           onError={() => {
             if (index < data.srcs.length - 1) {

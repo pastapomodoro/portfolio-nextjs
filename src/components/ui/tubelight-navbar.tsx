@@ -30,17 +30,9 @@ interface NavBarProps {
 
 export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0]?.name ?? "")
-  const [isMobile, setIsMobile] = useState(false)
   const pathname = usePathname()
 
   const idToName = useMemo(() => ({ home: "Home", about: "About", projects: "Projects" }), [])
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
 
   // Sync active tab with route/section
   useEffect(() => {
