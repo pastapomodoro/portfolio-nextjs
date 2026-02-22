@@ -38,40 +38,40 @@ const iconSources: Record<IconType, { srcs: string[]; color: string }> = {
   photoshop: {
     srcs: [
       "https://cdn.simpleicons.org/adobephotoshop/31A8FF",
-      "https://cdn.simpleicons.org/adobephotoshop/ffffff",
+      "https://cdn.simpleicons.org/adobephotoshop/111827",
     ],
     color: "#31A8FF",
   },
   blender: {
-    srcs: ["https://cdn.simpleicons.org/blender/F5792A", "https://cdn.simpleicons.org/blender/ffffff"],
+    srcs: ["https://cdn.simpleicons.org/blender/F5792A", "https://cdn.simpleicons.org/blender/111827"],
     color: "#F5792A",
   },
   openai: {
-    srcs: ["https://cdn.simpleicons.org/openai/00A67D", "https://cdn.simpleicons.org/openai/ffffff"],
+    srcs: ["https://cdn.simpleicons.org/openai/00A67D", "https://cdn.simpleicons.org/openai/111827"],
     color: "#00A67D",
   },
   figma: {
-    srcs: ["https://cdn.simpleicons.org/figma/0ACF83", "https://cdn.simpleicons.org/figma/ffffff"],
+    srcs: ["https://cdn.simpleicons.org/figma/0ACF83", "https://cdn.simpleicons.org/figma/111827"],
     color: "#0ACF83",
   },
   aftereffects: {
     srcs: [
       "https://cdn.simpleicons.org/adobeaftereffects/9999FF",
-      "https://cdn.simpleicons.org/adobeaftereffects/ffffff",
+      "https://cdn.simpleicons.org/adobeaftereffects/111827",
     ],
     color: "#9999FF",
   },
   illustrator: {
     srcs: [
       "https://cdn.simpleicons.org/adobeillustrator/FF9A00",
-      "https://cdn.simpleicons.org/adobeillustrator/ffffff",
+      "https://cdn.simpleicons.org/adobeillustrator/111827",
     ],
     color: "#FF9A00",
   },
   indesign: {
     srcs: [
       "https://cdn.simpleicons.org/adobeindesign/FF3366",
-      "https://cdn.simpleicons.org/adobeindesign/ffffff",
+      "https://cdn.simpleicons.org/adobeindesign/111827",
     ],
     color: "#FF3366",
   },
@@ -112,11 +112,11 @@ const SkillIcon = memo(({ type }: SkillIconProps) => {
               setFailed(true)
             }
           }}
-          style={{ filter: "drop-shadow(0 0 4px rgba(255,255,255,0.35))" }}
+          style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.15))" }}
         />
       )}
       {(!loaded || failed) && (
-        <div className="absolute inset-0 flex items-center justify-center text-[10px] font-semibold text-white/90">
+        <div className="absolute inset-0 flex items-center justify-center text-[11px] font-bold text-foreground/80">
           {abbrev[type]}
         </div>
       )}
@@ -153,13 +153,13 @@ const OrbitingSkill = memo(({ config, angle }: OrbitingSkillProps) => {
       <div
         className={cn(
           "relative w-full h-full p-2 rounded-full flex items-center justify-center",
-          "bg-black/60 backdrop-blur-sm shadow-lg"
+          "bg-white/90 border border-border/50 backdrop-blur-md shadow-lg transition-colors"
         )}
-        style={{ boxShadow: isHovered ? `0 0 24px ${glow}60, 0 0 48px ${glow}30` : `0 0 12px ${glow}30` }}
+        style={{ boxShadow: isHovered ? `0 0 24px ${glow}40, 0 0 48px ${glow}20` : `0 4px 12px rgba(0,0,0,0.05)` }}
       >
         <SkillIcon type={iconType} />
         {isHovered && (
-          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-xs text-white whitespace-nowrap bg-black/80 backdrop-blur-sm">
+          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md text-xs font-medium text-foreground whitespace-nowrap bg-background/95 border border-border shadow-md backdrop-blur-sm z-50">
             {label}
           </div>
         )}
@@ -203,21 +203,21 @@ export default function OrbitingSkills() {
         onMouseLeave={() => setIsPaused(false)}
       >
         {/* Subtle center glow to match palette */}
-        <div className="absolute w-40 h-40 rounded-full bg-primary/25 blur-3xl" />
-        <div className="absolute w-24 h-24 rounded-full bg-cyan-400/15 blur-2xl" />
+        <div className="absolute w-40 h-40 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute w-24 h-24 rounded-full bg-cyan-400/5 blur-2xl" />
 
-        {/* Glowing orbit rings for visibility */}
+        {/* Clean orbit rings for light aesthetic */}
         <div
-          className="absolute rounded-full pointer-events-none"
-          style={{ width: 220, height: 220, boxShadow: "0 0 24px rgba(34,197,94,0.35), inset 0 0 24px rgba(34,197,94,0.2)", border: "1px solid rgba(34,197,94,0.3)" }}
+          className="absolute rounded-full pointer-events-none border border-border/60"
+          style={{ width: 220, height: 220 }}
         />
         <div
-          className="absolute rounded-full pointer-events-none"
-          style={{ width: 370, height: 370, boxShadow: "0 0 24px rgba(6,182,212,0.35), inset 0 0 24px rgba(6,182,212,0.2)", border: "1px solid rgba(6,182,212,0.3)" }}
+          className="absolute rounded-full pointer-events-none border border-border/40"
+          style={{ width: 370, height: 370 }}
         />
         <div
-          className="absolute rounded-full pointer-events-none"
-          style={{ width: 470, height: 470, boxShadow: "0 0 24px rgba(34,197,94,0.35), inset 0 0 24px rgba(34,197,94,0.2)", border: "1px solid rgba(34,197,94,0.3)" }}
+          className="absolute rounded-full pointer-events-none border border-border/20"
+          style={{ width: 470, height: 470 }}
         />
 
         {skillsConfig.map((config) => {

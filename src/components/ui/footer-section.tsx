@@ -45,7 +45,7 @@ export function Footer() {
 			<div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
 				<AnimatedContainer className="space-y-4">
 					<div className="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-						<span className="text-sm font-semibold text-primary">EB</span>
+						<span className="text-sm font-normal text-primary">EB</span>
 					</div>
 					<p className="text-muted-foreground mt-8 text-sm md:mt-0">
 						© {new Date().getFullYear()} Eugenio Bellini. All rights reserved.
