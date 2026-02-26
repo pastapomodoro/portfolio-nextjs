@@ -17,15 +17,15 @@ interface ShowImageListItemProps {
 function RevealImageListItem({ text, href }: ShowImageListItemProps) {
 
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer" className="group block" prefetch={false}>
-      <div className="group relative w-full overflow-hidden py-10 md:py-14 border-b border-border/50 flex items-center justify-between">
-        <h3 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-wide text-foreground/80 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:translate-x-6 group-hover:text-foreground">
+    <Link href={href} className="group block" prefetch={false}>
+      <div className="group relative w-full overflow-hidden py-12 md:py-16 border-b border-border/30 flex items-center justify-between transition-colors duration-500 hover:border-foreground/50">
+        <h3 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight text-foreground/60 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-8 group-hover:text-foreground">
           {text}
         </h3>
-        <span className="opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-foreground">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12H19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <span className="opacity-0 -translate-x-12 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] text-foreground">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform -rotate-45 group-hover:rotate-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
+            <path d="M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
       </div>

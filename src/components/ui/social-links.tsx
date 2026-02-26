@@ -52,7 +52,7 @@ export function SocialLinks({ socials, className, ...props }: SocialLinksProps) 
           }}
           onMouseLeave={() => setHoveredSocial(null)}
         >
-          <span className="block text-sm md:text-base font-medium text-green-400 hover:text-green-300">
+          <span className="block text-sm md:text-base font-light text-foreground/80 hover:text-foreground transition-colors">
             {social.name}
           </span>
           <AnimatePresence>
@@ -77,6 +77,7 @@ export function SocialLinks({ socials, className, ...props }: SocialLinksProps) 
         </a>
       ))}
     </div>
-  )}
+  )
+}
 
 
