@@ -1,8 +1,5 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { FallingPattern } from "@/components/ui/falling-pattern";
 // import OrbitingSkills from "@/components/ui/orbiting-skills";
@@ -78,7 +75,7 @@ export default function Home() {
             <div>
               <div className="group/heading mb-8">
                 <h3 className="text-2xl font-normal text-foreground inline-block relative">
-                  Hello, I'm Eugenio.
+                  Hello, I&apos;m Eugenio.
                   <span className="absolute -bottom-2 left-0 w-8 h-[1px] bg-border transition-all duration-500 group-hover/heading:w-full group-hover/heading:bg-foreground"></span>
                 </h3>
               </div>
