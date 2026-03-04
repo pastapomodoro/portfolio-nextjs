@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "@/components/ui/tubelight-navbar";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Eugenio Bellini | Portfolio",
-  description: "Graphic Designer, Art Director & UX/UI Enthusiast based in Verona, Italy.",
+  description:
+    "Graphic Designer, Art Director & UX/UI Enthusiast based in Verona, Italy.",
 };
 
 export default function RootLayout({
@@ -26,16 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${outfit.variable} antialiased`}
+        className={`${inter.variable} ${instrumentSerif.variable} antialiased`}
       >
-        <NavBar
-          items={[
-            { name: "Home", url: "/#home", iconKey: "home" },
-            { name: "Projects", url: "/#projects", iconKey: "briefcase" },
-            { name: "About", url: "/#about", iconKey: "user" },
-            { name: "Resume", url: "/resume", iconKey: "fileText" },
-          ]}
-        />
         {children}
       </body>
     </html>
