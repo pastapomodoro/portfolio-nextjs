@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "@/components/LoadingScreen";
 import HeroSection from "@/components/HeroSection";
-import { SlidingBanner } from "@/components/ui/sliding-banner";
 import WorksSection from "@/components/WorksSection";
 import AllProjectsSection from "@/components/AllProjectsSection";
 import AboutSection from "@/components/AboutSection";
@@ -25,9 +24,6 @@ export default function Home() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <HeroSection />
-        <div className="border-y border-border">
-          <SlidingBanner height="h-64 md:h-96" speed={15} />
-        </div>
         <WorksSection />
         <AllProjectsSection />
         <AboutSection />

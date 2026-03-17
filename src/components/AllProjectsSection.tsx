@@ -256,18 +256,18 @@ export default function AllProjectsSection() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-border" />
-            <span className="text-[11px] text-muted-foreground uppercase tracking-[0.32em]">
+            <div className="w-6 h-px bg-border" />
+            <span className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.35em]">
               All Work
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl text-foreground leading-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl text-foreground font-light leading-tight">
             Browse by{" "}
             <span
               style={{
                 fontFamily: "var(--font-instrument-serif), serif",
                 fontStyle: "italic",
-                color: "#b8ff57",
+                color: "#4ade80",
               }}
             >
               category

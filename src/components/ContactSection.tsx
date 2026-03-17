@@ -105,26 +105,26 @@ export default function ContactSection() {
           {/* Left: label + statement */}
           <div>
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-border" />
-              <span className="text-[11px] text-muted-foreground uppercase tracking-[0.32em]">
+              <div className="w-6 h-px bg-border" />
+              <span className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.35em]">
                 Contact
               </span>
             </div>
 
-            <p className="text-3xl md:text-4xl text-foreground leading-snug mb-6">
+            <p className="text-3xl md:text-4xl text-foreground font-light leading-snug mb-6">
               Open to{" "}
               <span
                 style={{
                   fontFamily: "var(--font-instrument-serif), serif",
                   fontStyle: "italic",
-                  color: "#b8ff57",
+                  color: "#4ade80",
                 }}
               >
                 new work.
               </span>
             </p>
 
-            <p className="text-sm md:text-base text-muted-foreground/70 leading-relaxed max-w-xs">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs">
               Student designer, currently open to freelance projects,
               internships, and creative collaborations.
             </p>
@@ -133,20 +133,12 @@ export default function ContactSection() {
           {/* Right: email + CV */}
           <div className="flex flex-col gap-4 items-start md:items-end">
             <motion.div whileTap={{ scale: 0.97 }}>
-              <div className="relative group">
-                <span
-                  className="absolute -inset-[1.5px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: "linear-gradient(90deg, #89aacc, #4e85bf)",
-                  }}
-                />
-                <a
-                  href="mailto:eugenio.bellini@yahoo.it"
-                  className="relative flex items-center gap-2 px-7 py-3.5 rounded-full border border-border bg-background text-foreground text-sm transition-all duration-300"
-                >
-                  eugenio.bellini@yahoo.it ↗
-                </a>
-              </div>
+              <a
+                href="mailto:eugenio.bellini@yahoo.it"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full border border-border/60 bg-background text-foreground/70 hover:text-foreground hover:border-border text-sm transition-all duration-300 tracking-wide"
+              >
+                eugenio.bellini@yahoo.it ↗
+              </a>
             </motion.div>
 
             <a

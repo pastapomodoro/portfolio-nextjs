@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WORDS = ["Design", "Create", "Inspire"];
+const WORDS = ["Vision.", "Craft.", "Impact."];
 const DURATION_MS = 2700;
 
 export default function LoadingScreen({
@@ -56,8 +56,20 @@ export default function LoadingScreen({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <span className="text-xs text-muted-foreground uppercase tracking-[0.35em] font-light">
+        <span className="text-xs text-white/50 uppercase tracking-[0.35em] font-light">
           Portfolio
+        </span>
+      </motion.div>
+
+      {/* Top-right name */}
+      <motion.div
+        className="absolute top-6 right-6 md:top-10 md:right-10"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+      >
+        <span className="text-xs text-white/30 uppercase tracking-[0.35em] font-light">
+          Eugenio Bellini
         </span>
       </motion.div>
 
@@ -66,11 +78,12 @@ export default function LoadingScreen({
         <AnimatePresence mode="wait">
           <motion.span
             key={wordIndex}
-            className="text-4xl md:text-6xl lg:text-7xl text-foreground/75"
             style={{
               fontFamily: "var(--font-instrument-serif), serif",
               fontStyle: "italic",
+              color: wordIndex === 2 ? "#4ade80" : "#ececec",
             }}
+            className="text-4xl md:text-6xl lg:text-7xl"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
@@ -96,14 +109,14 @@ export default function LoadingScreen({
         </span>
       </motion.div>
 
-      {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-foreground/5">
+      {/* Progress bar — green */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5">
         <div
           className="h-full origin-left"
           style={{
             transform: `scaleX(${count / 100})`,
-            background: "linear-gradient(90deg, #89aacc 0%, #4e85bf 100%)",
-            boxShadow: "0 0 10px rgba(137, 170, 204, 0.4)",
+            background: "linear-gradient(90deg, #4ade80 0%, #22c55e 100%)",
+            boxShadow: "0 0 12px rgba(74, 222, 128, 0.45)",
             transition: "transform 80ms linear",
           }}
         />

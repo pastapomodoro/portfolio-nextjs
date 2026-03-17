@@ -8,23 +8,22 @@ const SKILLS: Record<string, string[]> = {
   "AI & Tools": ["ComfyUI", "Claude Code", "Cursor", "Google AI Studio"],
 };
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08 },
-  },
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.92, y: 5 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.38 } },
 };
 
-const chipVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 6 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4 } },
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-background py-16 md:py-24">
+    <section id="about" className="bg-background py-20 md:py-32">
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+
           {/* Left: bio */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -33,19 +32,19 @@ export default function AboutSection() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-border" />
-              <span className="text-[11px] text-muted-foreground uppercase tracking-[0.32em]">
+              <div className="w-6 h-px bg-border" />
+              <span className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.35em]">
                 About
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-5xl text-foreground mb-7 leading-tight">
+            <h2 className="text-3xl md:text-5xl text-foreground font-light mb-8 leading-tight">
               Hello, I&apos;m{" "}
               <span
                 style={{
                   fontFamily: "var(--font-instrument-serif), serif",
                   fontStyle: "italic",
-                  color: "#b8ff57",
+                  color: "#4ade80",
                 }}
               >
                 Eugenio.
@@ -54,7 +53,7 @@ export default function AboutSection() {
 
             <div className="space-y-4 text-muted-foreground text-sm md:text-base leading-relaxed">
               <p>
-                Interactive Designer & Art Direction student based in Verona,
+                Interactive Designer &amp; Art Direction student based in Verona,
                 Italy. I work at the intersection of creativity and technology —
                 blending traditional design principles with modern digital
                 experiences.
@@ -66,23 +65,15 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="mt-8 flex items-center gap-4">
-              <div className="relative group">
-                <span
-                  className="absolute -inset-[1.5px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: "linear-gradient(90deg, #89aacc, #4e85bf)",
-                  }}
-                />
-                <a
-                  href="/cv.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative flex items-center gap-2 px-6 py-2.5 rounded-full border border-border bg-background text-sm text-foreground transition-colors duration-200"
-                >
-                  Download CV ↓
-                </a>
-              </div>
+            <div className="mt-10">
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-border/60 text-sm text-muted-foreground/60 hover:text-foreground hover:border-border transition-all duration-300"
+              >
+                Download CV ↓
+              </a>
             </div>
           </motion.div>
 
@@ -90,17 +81,13 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.85,
-              delay: 0.1,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
+            className="space-y-9"
           >
             {Object.entries(SKILLS).map(([category, skills], groupIndex) => (
               <div key={category}>
-                <p className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.28em] mb-3 font-light">
+                <p className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.3em] mb-3.5 font-light">
                   {category}
                 </p>
                 <motion.div
@@ -109,13 +96,13 @@ export default function AboutSection() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delayChildren: groupIndex * 0.15 }}
+                  transition={{ delayChildren: groupIndex * 0.12 }}
                 >
                   {skills.map((skill) => (
                     <motion.span
                       key={skill}
                       variants={chipVariants}
-                      className="px-3.5 py-1.5 rounded-full border border-border text-sm text-foreground/65 hover:text-foreground hover:border-foreground/20 transition-all duration-200 cursor-default"
+                      className="px-3.5 py-1.5 rounded-full border border-border text-sm text-foreground/65 hover:text-foreground hover:border-foreground/30 transition-all duration-200 cursor-default"
                     >
                       {skill}
                     </motion.span>
@@ -124,6 +111,7 @@ export default function AboutSection() {
               </div>
             ))}
           </motion.div>
+
         </div>
       </div>
     </section>
