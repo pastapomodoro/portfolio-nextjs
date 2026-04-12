@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas";
+import { MAFIASLIME_CANVAS_BG } from "@/lib/mafiaslime-canvas";
 
 interface Project {
   title: string;
@@ -8,27 +10,28 @@ interface Project {
   image: string;
   url: string;
   year: string;
+  sourceLabel?: string;
+  /** Extra classes for <img> (e.g. object-contain when cover crops the artwork) */
+  imageClassName?: string;
+  /** Solid fill behind object-contain (matches render canvas) */
+  canvasBg?: string;
 }
 
 const PROJECTS: Project[] = [
   {
-    title: "ETHEREAL:ACCES_01",
-    category: "UX/UI Design",
-    image: "/GameMenu.png",
-    url: "https://www.behance.net/gallery/244534131/Aethereal-Access-Game-Menu-Design-UXUI-Project",
-    year: "2025",
-  },
-  {
-    title: "Cinematic Love Affairs",
-    category: "Editorial Design",
-    image: "/cinematicloveraffairs.png",
-    url: "https://www.behance.net/gallery/234516509/Cinematic-Love-Affairs",
+    title: "MINIDEV",
+    category: "UX/UI",
+    image: "/MINIDEV.png",
+    url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
     year: "2024",
+    canvasBg: MINIDEV_CANVAS_BG,
+    imageClassName:
+      "object-contain object-center w-full h-full py-6 md:py-10 lg:py-14 px-0",
   },
   {
     title: "BloodMoon",
     category: "Visual Identity",
-    image: "/bloodmoon.png",
+    image: "/bloodyrender.png",
     url: "https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity",
     year: "2024",
   },
@@ -36,128 +39,120 @@ const PROJECTS: Project[] = [
     title: "MafiaSlime II",
     category: "Web Design",
     image: "/mafiaslime.png",
-    url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198&p=f&t=j0KKPirDqASmgpdX-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=134%3A16",
+    url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198",
+    year: "2024",
+    canvasBg: MAFIASLIME_CANVAS_BG,
+    imageClassName:
+      "object-contain object-center w-full h-full py-6 md:py-10 lg:py-14 px-0",
+  },
+  {
+    title: "Kawaii OD 2025",
+    category: "Brand Design",
+    image: "/kawaiiOD.PNG",
+    url: "https://www.behance.net/gallery/226585309/Kawaii-OD-2025",
     year: "2024",
   },
 ];
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectRow({ project, index }: { project: Project; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const isEven = index % 2 === 0;
+
   return (
-    <motion.a
+    <a
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block w-full overflow-hidden rounded-2xl aspect-[4/3] bg-card cursor-pointer"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65, delay: 0.3 + index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+      className="group block border-b border-border"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Thumbnail */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={project.image}
-        alt={project.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-      />
+      <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[60vh] ${isEven ? "" : "lg:flex-row-reverse"}`}>
 
-      {/* Bottom gradient + info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gradient-to-t from-black/65 to-transparent">
-        <p className="text-[10px] text-white/45 uppercase tracking-[0.26em] font-light mb-1">
-          {project.category}&nbsp;&nbsp;·&nbsp;&nbsp;{project.year}
-        </p>
-        <p
-          className="text-base sm:text-lg text-white/90 leading-tight"
-          style={{
-            fontFamily: "var(--font-instrument-serif), serif",
-            fontStyle: "italic",
-          }}
+        {/* Image side */}
+        <div
+          className={`relative overflow-hidden ${project.canvasBg ? "" : "bg-muted"} ${isEven ? "lg:order-2" : "lg:order-1"}`}
+          style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
         >
-          {project.title}
-        </p>
-      </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={project.image}
+            alt={project.title}
+            className={`absolute inset-0 w-full h-full transition-transform duration-500 ${
+              project.imageClassName ?? "object-cover"
+            } ${isHovered ? "scale-105" : "scale-100"}`}
+          />
+        </div>
 
-      {/* View pill on hover */}
-      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-y-0.5 group-hover:translate-y-0 transition-all duration-300">
-        <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 text-[10px] text-white/80 tracking-wide">
-          View ↗
-        </span>
+        {/* Info side */}
+        <div className={`flex flex-col justify-between p-6 md:p-12 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+          <div>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              {project.category}
+            </p>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
+              {project.title}
+            </h3>
+            <p className="text-muted-foreground">{project.year}</p>
+          </div>
+
+          <div className="flex items-center justify-between pt-8">
+            <span
+              className={`text-sm transition-opacity duration-200 ${
+                isHovered ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              View Project →
+            </span>
+            <span className="text-xs text-muted-foreground">
+              {project.sourceLabel ?? "Behance"}
+            </span>
+          </div>
+        </div>
       </div>
-    </motion.a>
+    </a>
   );
 }
 
 export default function WorksSection() {
   return (
-    <section id="works" className="bg-background py-20 md:py-32">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
+    <section id="works" className="bg-background">
+      {/* Header */}
+      <div className="border-b border-border">
+        <div className="flex items-center justify-between p-6 md:p-12">
+          <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            Selected Work
+          </h2>
+          <span className="text-xs text-muted-foreground">
+            {PROJECTS.length} Projects
+          </span>
+        </div>
+      </div>
 
-        {/* Header */}
-        <motion.div
-          className="mb-10 md:mb-14 flex items-end justify-between"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-80px" }}
+      {/* Projects */}
+      {PROJECTS.map((project, i) => (
+        <ProjectRow key={project.title} project={project} index={i} />
+      ))}
+
+      {/* View all */}
+      <div className="border-b border-border">
+        <a
+          href="https://www.behance.net/eugnbll"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block p-6 md:p-12 hover:bg-muted transition-colors"
         >
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-px bg-border" />
-              <span className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.35em]">
-                Selected Work
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-5xl text-foreground font-light leading-tight">
-              Featured{" "}
-              <span
-                style={{
-                  fontFamily: "var(--font-instrument-serif), serif",
-                  fontStyle: "italic",
-                  color: "#4ade80",
-                }}
-              >
-                projects
-              </span>
-            </h2>
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-medium">View all work on Behance</span>
+            <span>→</span>
           </div>
-
-          <a
-            href="https://www.behance.net/eugnbll"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-1.5 text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors duration-200 group tracking-wide"
-          >
-            Behance
-            <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">↗</span>
-          </a>
-        </motion.div>
-
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
-          <div className="sm:col-span-1 md:col-span-7">
-            <ProjectCard project={PROJECTS[0]} index={0} />
-          </div>
-          <div className="sm:col-span-1 md:col-span-5">
-            <ProjectCard project={PROJECTS[1]} index={1} />
-          </div>
-          <div className="sm:col-span-1 md:col-span-5">
-            <ProjectCard project={PROJECTS[2]} index={2} />
-          </div>
-          <div className="sm:col-span-1 md:col-span-7">
-            <ProjectCard project={PROJECTS[3]} index={3} />
-          </div>
-        </div>
-
-        {/* Mobile: view all */}
-        <div className="mt-7 flex justify-center md:hidden">
-          <a
-            href="https://www.behance.net/eugnbll"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors duration-200 tracking-wide"
-          >
-            View all on Behance ↗
-          </a>
-        </div>
+        </a>
       </div>
     </section>
   );

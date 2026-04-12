@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas"
 
 type Project = {
   title: string
@@ -8,6 +9,7 @@ type Project = {
   objectPositionClass?: string
   objectPosition?: string
   imageClassName?: string
+  canvasBg?: string
 }
 
 const projects: Project[] = [
@@ -18,19 +20,20 @@ const projects: Project[] = [
     description: "GAME MENU DESIGN / UX-UI"
   },
   {
-    title: "Korg ESX1 x Hatsune Miku",
-    href: "https://www.behance.net/gallery/234275497/Korg-ESX2-x-Hatsune-Miku",
-    imageSrc: "/miku/Cattura.PNG",
-    description: "Concept UI for Korg ESX1 × Hatsune Miku",
-    objectPositionClass: "",
-    objectPosition: "center 8%"
+    title: "Kawaii OD 2025",
+    href: "https://www.behance.net/gallery/226585309/Kawaii-OD-2025",
+    imageSrc: "/kawaiiOD.PNG",
+    description: "Brand Design project",
+    objectPosition: "40% center"
   },
   {
     title: "MINIDEV – memo recorder portatile",
     href: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
-    imageSrc: "/minidev.png",
+    imageSrc: "/MINIDEV.png",
     description: "Portable memo recorder UI",
-    imageClassName: "object-contain"
+    imageClassName:
+      "object-contain object-center w-full h-full py-6 md:py-8 px-0",
+    canvasBg: MINIDEV_CANVAS_BG,
   },
 ]
 
@@ -54,7 +57,10 @@ export default function Page() {
         {projects.map((project, i) => {
           const card = (
             <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-              <div className="aspect-[16/10] bg-muted/50 relative overflow-hidden">
+              <div
+                className={`aspect-[16/10] relative overflow-hidden ${project.canvasBg ? "" : "bg-muted/50"}`}
+                style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
+              >
                 {project.imageSrc ? (
                   <Image
                     src={project.imageSrc}

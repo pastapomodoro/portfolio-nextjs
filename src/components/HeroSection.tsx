@@ -1,184 +1,123 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-import Image from "next/image";
-import gsap from "gsap";
+import { useState } from "react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "home" },
-  { label: "Works", href: "works" },
-  { label: "Archive", href: "all-projects" },
+  { label: "Work", href: "works" },
   { label: "About", href: "about" },
+  { label: "Contact", href: "contact" },
 ];
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
-function Navbar({ scrollY }: { scrollY: number }) {
-  const [active, setActive] = useState("Home");
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none">
-      <div
-        className={`inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-black/65 px-2 py-2 pointer-events-auto transition-shadow duration-300 ${
-          scrollY > 80 ? "shadow-lg shadow-black/50" : ""
-        }`}
-      >
-        <div className="relative mr-1 cursor-pointer group">
-          <div
-            className="absolute -inset-[1.5px] rounded-full"
-            style={{ background: "linear-gradient(135deg, #4ade80, #22c55e)" }}
-          />
-          <div className="relative w-8 h-8 rounded-full overflow-hidden transition-transform duration-300 group-hover:scale-95">
-            <Image src="/pfp.png" alt="Eugenio Bellini" fill className="object-cover" />
-          </div>
-        </div>
-
-        <div className="hidden sm:block w-px h-5 bg-white/10 mx-1.5" />
-
-        {NAV_ITEMS.map((item) => (
-          <button
-            key={item.label}
-            onClick={() => { setActive(item.label); scrollTo(item.href); }}
-            className={`${item.label === "Home" ? "hidden sm:flex" : "flex"} text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-all duration-200 cursor-pointer ${
-              active === item.label
-                ? "text-white bg-white/12"
-                : "text-white/55 hover:text-white/85 hover:bg-white/7"
-            }`}
-          >
-            {item.label}
-          </button>
-        ))}
-
-        <div className="hidden sm:block w-px h-5 bg-white/10 mx-1.5" />
-
-        <a
-          href="mailto:eugenio.bellini@yahoo.it"
-          className="flex items-center gap-1 text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-white/55 hover:text-white/85 transition-colors duration-200"
-        >
-          Say hi <span className="text-[10px] ml-0.5">↗</span>
-        </a>
-      </div>
-    </nav>
-  );
-}
-
 export default function HeroSection() {
-  const [scrollY, setScrollY] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const id = setTimeout(() => {
-      const ctx = gsap.context(() => {
-        gsap.from(".name-reveal", {
-          opacity: 0,
-          y: 60,
-          duration: 1.2,
-          ease: "power3.out",
-          delay: 0.05,
-        });
-        gsap.from(".blur-in", {
-          opacity: 0,
-          y: 16,
-          duration: 0.9,
-          stagger: 0.1,
-          ease: "power3.out",
-          delay: 0.2,
-        });
-      }, sectionRef);
-      return () => ctx.revert();
-    }, 0);
-    return () => clearTimeout(id);
-  }, []);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   return (
     <>
-      <Navbar scrollY={scrollY} />
-
-      <section
-        id="home"
-        ref={sectionRef}
-        className="relative min-h-screen flex flex-col overflow-hidden bg-[#080808]"
-      >
-        {/* Subtle green-tinted radial glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 65% 50% at 50% 0%, rgba(74,222,128,0.05) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
-
-        {/* Hero content */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 relative z-10 pt-28 pb-24">
-
-          {/* Status badge */}
-          <div className="blur-in mb-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/[0.04] text-[11px] text-white/70 tracking-wide">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
-            </span>
-            Verona, Italy · Available for projects
-          </div>
-
-          {/* Name */}
-          <h1
-            className="name-reveal text-[clamp(4.5rem,14vw,10rem)] leading-[0.84] tracking-tight text-white mb-8"
-            style={{
-              fontFamily: "var(--font-instrument-serif), serif",
-              fontStyle: "italic",
-            }}
+      {/* Fixed Nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
+        <div className="flex items-center justify-between px-6 md:px-12 py-4">
+          <button
+            onClick={() => scrollTo("home")}
+            className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity cursor-pointer"
           >
-            Eugenio
-            <br />
-            Bellini
-          </h1>
-
-          {/* Role */}
-          <p className="blur-in text-sm md:text-base text-white/65 mb-10 tracking-wide">
-            Interactive Designer&nbsp;&nbsp;·&nbsp;&nbsp;Art Director
-          </p>
-
-          {/* CTAs */}
-          <div className="blur-in flex items-center gap-3 flex-wrap justify-center">
-            <button
-              onClick={() => scrollTo("works")}
-              className="rounded-full text-sm px-7 py-3 bg-white text-black hover:bg-white/90 transition-all duration-300 cursor-pointer font-medium tracking-wide"
-            >
-              See Works
-            </button>
-            <a
-              href="mailto:eugenio.bellini@yahoo.it"
-              className="flex items-center gap-1.5 rounded-full text-sm px-7 py-3 border border-white/20 text-white/70 hover:text-white hover:border-white/35 transition-all duration-300 tracking-wide"
-            >
-              Get in touch ↗
-            </a>
-          </div>
-
-          {/* Green accent line */}
-          <div className="blur-in mt-16 flex items-center gap-3 text-[10px] text-white/30 uppercase tracking-[0.3em]">
-            <div className="w-8 h-px" style={{ background: "#4ade80", opacity: 0.5 }} />
-            Design · Motion · Technology
-            <div className="w-8 h-px" style={{ background: "#4ade80", opacity: 0.5 }} />
+            Eugenio Bellini
+          </button>
+          <div className="flex items-center gap-8">
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => scrollTo(item.href)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
         </div>
+      </nav>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5">
-          <span className="text-[10px] text-white/30 uppercase tracking-[0.3em]">Scroll</span>
-          <div className="w-px h-10 bg-white/10 relative overflow-hidden">
-            <div className="absolute w-full h-[45%] animate-scroll-down" style={{ background: "#4ade80", opacity: 0.7 }} />
+      <section id="home" className="min-h-screen bg-background pt-16">
+        {/* Hero split */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
+
+          {/* Left - Info */}
+          <div className="flex flex-col justify-between p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-border">
+            <div className="pt-8 md:pt-16">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                Graphic Designer & Art Director
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
+                Creating visual
+                <br />
+                experiences that
+                <br />
+                <span className="italic" style={{ fontFamily: "var(--font-instrument-serif), serif" }}>
+                  resonate.
+                </span>
+              </h1>
+              <p className="text-muted-foreground max-w-md leading-relaxed">
+                Interactive Designer & Art Direction student based in Verona, Italy.
+                Focused on UX/UI, branding, and motion graphics.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between pt-12 border-t border-border mt-12">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-green-500" />
+                <span className="text-sm text-muted-foreground">Available for projects</span>
+              </div>
+              <a
+                href="mailto:eugenio.bellini@yahoo.it"
+                className="text-sm underline underline-offset-4 hover:opacity-60 transition-opacity"
+              >
+                Get in touch
+              </a>
+            </div>
+          </div>
+
+          {/* Right - Featured Project Preview */}
+          <div className="relative bg-muted">
+            <a
+              href="https://www.behance.net/gallery/244534131/Aethereal-Access-Game-Menu-Design-UXUI-Project"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full min-h-[50vh] lg:min-h-full relative group"
+              onMouseEnter={() => setHoveredProject("ethereal")}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+                <video
+                src="/comp2.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+
+              {/* Overlay info */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-2">
+                  Featured Project
+                </p>
+                <h2 className="text-2xl md:text-3xl text-white font-medium tracking-tight">
+                  ETHEREAL:ACCESS_01
+                </h2>
+                <p className="text-sm text-white/60 mt-2">UX/UI Design — 2025</p>
+              </div>
+
+              {/* View indicator */}
+              <div
+                className={`absolute top-6 right-6 md:top-12 md:right-12 px-4 py-2 bg-white text-black text-xs uppercase tracking-wider transition-opacity duration-200 ${
+                  hoveredProject === "ethereal" ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                View Project →
+              </div>
+            </a>
           </div>
         </div>
       </section>

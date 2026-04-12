@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas";
+import { MAFIASLIME_CANVAS_BG } from "@/lib/mafiaslime-canvas";
 
 interface Project {
   title: string;
   description: string;
   image: string;
   url: string;
+  imageClassName?: string;
+  canvasBg?: string;
 }
 
 interface Category {
@@ -28,29 +32,26 @@ const CATEGORIES: Category[] = [
         url: "https://www.behance.net/gallery/244534131/Aethereal-Access-Game-Menu-Design-UXUI-Project?platform=direct",
       },
       {
-        title: "Korg ESX1 × Hatsune Miku",
-        description: "Concept UI Design",
-        image: "/miku/Cattura.PNG",
-        url: "https://www.behance.net/gallery/234275497/Korg-ESX2-x-Hatsune-Miku",
-      },
-      {
-        title: "MINIDEV",
-        description: "Portable Memo Recorder UI",
-        image: "/minidev.png",
-        url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
-      },
-    ],
-  },
-  {
-    label: "Brand Design",
-    count: "03",
-    projects: [
-      {
         title: "Kawaii OD 2025",
         description: "Brand Design",
         image: "/kawaiiOD.PNG",
         url: "https://www.behance.net/gallery/226585309/Kawaii-OD-2025",
       },
+      {
+        title: "MINIDEV",
+        description: "Portable Memo Recorder UI",
+        image: "/MINIDEV.png",
+        url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
+        canvasBg: MINIDEV_CANVAS_BG,
+        imageClassName:
+          "object-contain object-center w-full h-full py-4 md:py-5 px-0 scale-100 group-hover:scale-[1.04]",
+      },
+    ],
+  },
+  {
+    label: "Brand Design",
+    count: "02",
+    projects: [
       {
         title: "BloodMoon",
         description: "Visual Identity",
@@ -67,19 +68,16 @@ const CATEGORIES: Category[] = [
   },
   {
     label: "Web Design",
-    count: "02",
+    count: "01",
     projects: [
       {
         title: "MafiaSlime II",
         description: "Web Design — K100 Label",
         image: "/mafiaslime.png",
         url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198&p=f&t=j0KKPirDqASmgpdX-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=134%3A16",
-      },
-      {
-        title: "HellPulse Visual",
-        description: "Music Visual Generator",
-        image: "/hellpulse.png",
-        url: "https://hell-pulse-visuals.vercel.app/",
+        canvasBg: MAFIASLIME_CANVAS_BG,
+        imageClassName:
+          "object-contain object-center w-full h-full py-4 md:py-5 px-0 scale-100 group-hover:scale-[1.04]",
       },
     ],
   },
@@ -88,10 +86,13 @@ const CATEGORIES: Category[] = [
     count: "02",
     projects: [
       {
-        title: "Cinematic Love Affairs",
-        description: "Booklet — Love in Cinema",
-        image: "/cinematicloveraffairs.png",
-        url: "https://www.behance.net/gallery/234516509/Cinematic-Love-Affairs",
+        title: "MINIDEV",
+        description: "Portable Memo Recorder UI",
+        image: "/MINIDEV.png",
+        url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
+        canvasBg: MINIDEV_CANVAS_BG,
+        imageClassName:
+          "object-contain object-center w-full h-full py-4 md:py-5 px-0 scale-100 group-hover:scale-[1.04]",
       },
       {
         title: "A Certain Blue",
@@ -109,13 +110,17 @@ function ProjectCard({ project }: { project: Project }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex rounded-xl overflow-hidden aspect-[4/3] bg-card border border-border cursor-pointer"
+      className={`group relative flex rounded-xl overflow-hidden aspect-[4/3] border border-border cursor-pointer ${project.canvasBg ? "" : "bg-card"}`}
+      style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={project.image}
         alt={project.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+        className={`absolute inset-0 w-full h-full transition-transform duration-700 ease-out ${
+          project.imageClassName ??
+          "object-cover group-hover:scale-[1.06]"
+        }`}
       />
 
       {/* Bottom label */}
@@ -139,7 +144,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="relative">
           <span
             className="absolute -inset-[1px] rounded-full"
-            style={{ background: "linear-gradient(90deg, #89aacc, #4e85bf)" }}
+            style={{ background: "linear-gradient(90deg, #7ec4b8, #5eada0)" }}
           />
           <span className="relative flex items-center gap-1 px-3 py-1 rounded-full bg-background text-[10px] text-foreground">
             View ↗
@@ -264,10 +269,10 @@ export default function AllProjectsSection() {
           <h2 className="text-3xl md:text-5xl lg:text-6xl text-foreground font-light leading-tight">
             Browse by{" "}
             <span
+              className="text-teal"
               style={{
                 fontFamily: "var(--font-instrument-serif), serif",
                 fontStyle: "italic",
-                color: "#4ade80",
               }}
             >
               category

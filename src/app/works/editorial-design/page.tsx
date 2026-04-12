@@ -1,19 +1,25 @@
 import Image from "next/image"
 import Link from "next/link"
+import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas"
 
 type Project = {
   title: string
   href?: string
   imageSrc?: string
   description?: string
+  imageClassName?: string
+  canvasBg?: string
 }
 
 const projects: Project[] = [
   {
-    title: "Cinematic Love Affairs",
-    href: "https://www.behance.net/gallery/234516509/Cinematic-Love-Affairs",
-    imageSrc: "/cinematicloveraffairs.png",
-    description: "Booklet exploring love in cinema"
+    title: "MINIDEV – memo recorder portatile",
+    href: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
+    imageSrc: "/MINIDEV.png",
+    description: "Portable memo recorder — product UI",
+    imageClassName:
+      "object-contain object-center w-full h-full py-6 md:py-8 px-0",
+    canvasBg: MINIDEV_CANVAS_BG,
   },
   {
     title: "A certain Blue enters your soul",
@@ -43,9 +49,12 @@ export default function Page() {
         {projects.map((project, i) => {
           const card = (
             <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-              <div className="aspect-[16/10] bg-muted/50 relative overflow-hidden">
+              <div
+                className={`aspect-[16/10] relative overflow-hidden ${project.canvasBg ? "" : "bg-muted/50"}`}
+                style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
+              >
                 {project.imageSrc ? (
-                  <Image src={project.imageSrc} alt={project.title} width={1920} height={1080} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src={project.imageSrc} alt={project.title} width={1920} height={1200} className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? "object-cover"}`} />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-muted-foreground/30 font-medium">Image coming soon</div>
                 )}

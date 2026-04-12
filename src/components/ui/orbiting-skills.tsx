@@ -9,9 +9,7 @@ type IconType =
   | "blender"
   | "openai"
   | "figma"
-  | "aftereffects"
   | "illustrator"
-  | "indesign"
 
 type GlowColor = "cyan" | "green"
 
@@ -55,26 +53,12 @@ const iconSources: Record<IconType, { srcs: string[]; color: string }> = {
     srcs: ["https://cdn.simpleicons.org/figma/0ACF83", "https://cdn.simpleicons.org/figma/111827"],
     color: "#0ACF83",
   },
-  aftereffects: {
-    srcs: [
-      "https://cdn.simpleicons.org/adobeaftereffects/9999FF",
-      "https://cdn.simpleicons.org/adobeaftereffects/111827",
-    ],
-    color: "#9999FF",
-  },
   illustrator: {
     srcs: [
       "https://cdn.simpleicons.org/adobeillustrator/FF9A00",
       "https://cdn.simpleicons.org/adobeillustrator/111827",
     ],
     color: "#FF9A00",
-  },
-  indesign: {
-    srcs: [
-      "https://cdn.simpleicons.org/adobeindesign/FF3366",
-      "https://cdn.simpleicons.org/adobeindesign/111827",
-    ],
-    color: "#FF3366",
   },
 }
 
@@ -87,8 +71,6 @@ const SkillIcon = memo(({ type }: SkillIconProps) => {
   const abbrev: Record<IconType, string> = {
     photoshop: 'Ps',
     illustrator: 'Ai',
-    indesign: 'Id',
-    aftereffects: 'Ae',
     figma: 'F',
     blender: 'B',
     openai: 'AI',
@@ -129,11 +111,9 @@ SkillIcon.displayName = "SkillIcon"
 
 const skillsConfig: SkillConfig[] = [
   { id: "photoshop", orbitRadius: 110, size: 50, speed: 1, iconType: "photoshop", phaseShift: 0, glowColor: "cyan", label: "Photoshop" },
-  { id: "illustrator", orbitRadius: 110, size: 48, speed: 1, iconType: "illustrator", phaseShift: (2 * Math.PI) / 3, glowColor: "green", label: "Illustrator" },
-  { id: "indesign", orbitRadius: 110, size: 46, speed: 1, iconType: "indesign", phaseShift: (4 * Math.PI) / 3, glowColor: "cyan", label: "InDesign" },
+  { id: "illustrator", orbitRadius: 110, size: 48, speed: 1, iconType: "illustrator", phaseShift: Math.PI, glowColor: "green", label: "Illustrator" },
   { id: "figma", orbitRadius: 185, size: 52, speed: -0.6, iconType: "figma", phaseShift: 0, glowColor: "green", label: "Figma" },
-  { id: "aftereffects", orbitRadius: 185, size: 50, speed: -0.6, iconType: "aftereffects", phaseShift: (2 * Math.PI) / 3, glowColor: "cyan", label: "After Effects" },
-  { id: "blender", orbitRadius: 185, size: 50, speed: -0.6, iconType: "blender", phaseShift: (4 * Math.PI) / 3, glowColor: "green", label: "Blender" },
+  { id: "blender", orbitRadius: 185, size: 50, speed: -0.6, iconType: "blender", phaseShift: Math.PI, glowColor: "green", label: "Blender" },
   { id: "openai", orbitRadius: 235, size: 48, speed: 0.4, iconType: "openai", phaseShift: Math.PI / 3, glowColor: "cyan", label: "OpenAI" },
 ]
 
