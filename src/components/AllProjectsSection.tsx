@@ -40,7 +40,7 @@ const CATEGORIES: Category[] = [
       {
         title: "MINIDEV",
         description: "Portable Memo Recorder UI",
-        image: "/MINIDEV.png",
+        image: "/minidev.png",
         url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
         canvasBg: MINIDEV_CANVAS_BG,
         imageClassName:
@@ -88,7 +88,7 @@ const CATEGORIES: Category[] = [
       {
         title: "MINIDEV",
         description: "Portable Memo Recorder UI",
-        image: "/MINIDEV.png",
+        image: "/minidev.png",
         url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
         canvasBg: MINIDEV_CANVAS_BG,
         imageClassName:

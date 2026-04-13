@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
   {
     title: "MINIDEV",
     category: "UX/UI",
-    image: "/MINIDEV.png",
+    image: "/minidev.png",
     url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
     year: "2024",
     canvasBg: MINIDEV_CANVAS_BG,
