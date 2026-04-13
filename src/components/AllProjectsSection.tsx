@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas";
-import { MAFIASLIME_CANVAS_BG } from "@/lib/mafiaslime-canvas";
 
 interface Project {
   title: string;
@@ -12,6 +11,9 @@ interface Project {
   url: string;
   imageClassName?: string;
   canvasBg?: string;
+  disableHoverZoom?: boolean;
+  cardClassName?: string;
+  objectPosition?: string;
 }
 
 interface Category {
@@ -75,9 +77,8 @@ const CATEGORIES: Category[] = [
         description: "Web Design — K100 Label",
         image: "/mafiaslime.png",
         url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198&p=f&t=j0KKPirDqASmgpdX-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=134%3A16",
-        canvasBg: MAFIASLIME_CANVAS_BG,
-        imageClassName:
-          "object-contain object-center w-full h-full py-4 md:py-5 px-0 scale-100 group-hover:scale-[1.04]",
+        imageClassName: "object-contain object-center",
+        disableHoverZoom: true,
       },
     ],
   },
@@ -110,7 +111,7 @@ function ProjectCard({ project }: { project: Project }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex rounded-xl overflow-hidden aspect-[4/3] border border-border cursor-pointer ${project.canvasBg ? "" : "bg-card"}`}
+      className={`group relative flex rounded-xl overflow-hidden border border-border cursor-pointer ${project.cardClassName ?? "aspect-[4/3]"} ${project.canvasBg ? "" : "bg-card"}`}
       style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -119,8 +120,11 @@ function ProjectCard({ project }: { project: Project }) {
         alt={project.title}
         className={`absolute inset-0 w-full h-full transition-transform duration-700 ease-out ${
           project.imageClassName ??
-          "object-cover group-hover:scale-[1.06]"
+          "object-cover"
+        } ${
+          project.disableHoverZoom ? "scale-100" : "group-hover:scale-[1.06]"
         }`}
+        style={{ objectPosition: project.objectPosition }}
       />
 
       {/* Bottom label */}

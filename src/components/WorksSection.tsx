@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas";
-import { MAFIASLIME_CANVAS_BG } from "@/lib/mafiaslime-canvas";
 
 interface Project {
   title: string;
@@ -15,6 +14,10 @@ interface Project {
   imageClassName?: string;
   /** Solid fill behind object-contain (matches render canvas) */
   canvasBg?: string;
+  /** Disable image zoom animation on hover for this project */
+  disableHoverZoom?: boolean;
+  /** Custom object-position to preserve key artwork areas */
+  objectPosition?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -41,9 +44,8 @@ const PROJECTS: Project[] = [
     image: "/mafiaslime.png",
     url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198",
     year: "2024",
-    canvasBg: MAFIASLIME_CANVAS_BG,
-    imageClassName:
-      "object-contain object-center w-full h-full py-6 md:py-10 lg:py-14 px-0",
+    imageClassName: "object-contain object-center",
+    disableHoverZoom: true,
   },
   {
     title: "Kawaii OD 2025",
@@ -80,7 +82,8 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             alt={project.title}
             className={`absolute inset-0 w-full h-full transition-transform duration-500 ${
               project.imageClassName ?? "object-cover"
-            } ${isHovered ? "scale-105" : "scale-100"}`}
+            } ${isHovered && !project.disableHoverZoom ? "scale-105" : "scale-100"}`}
+            style={{ objectPosition: project.objectPosition }}
           />
         </div>
 

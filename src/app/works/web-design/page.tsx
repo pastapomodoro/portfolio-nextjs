@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { MAFIASLIME_CANVAS_BG } from "@/lib/mafiaslime-canvas"
 
 type Project = {
   title: string
@@ -10,6 +9,8 @@ type Project = {
   imageClassName?: string
   canvasBg?: string
   objectPosition?: string
+  disableHoverZoom?: boolean
+  mediaClassName?: string
 }
 
 const projects: Project[] = [
@@ -18,9 +19,8 @@ const projects: Project[] = [
     href: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198&p=f&t=j0KKPirDqASmgpdX-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=134%3A16",
     imageSrc: "/mafiaslime.png",
     description: "Sito web per l'etichetta K100",
-    imageClassName:
-      "object-contain object-center w-full h-full py-6 md:py-8 px-0",
-    canvasBg: MAFIASLIME_CANVAS_BG,
+    imageClassName: "object-contain object-center",
+    disableHoverZoom: true,
   },
   {
     title: "Kawaii OD 2025",
@@ -51,7 +51,7 @@ export default function Page() {
           const card = (
             <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
               <div
-                className={`aspect-[16/10] relative overflow-hidden ${project.canvasBg ? "" : "bg-muted/50"}`}
+                className={`${project.mediaClassName ?? "aspect-[16/10]"} relative overflow-hidden ${project.canvasBg ? "" : "bg-muted/50"}`}
                 style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
               >
                 {project.imageSrc ? (
@@ -60,7 +60,9 @@ export default function Page() {
                     alt={project.title}
                     width={1920}
                     height={1080}
-                    className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? "object-cover"}`}
+                    className={`h-full w-full transition-transform duration-700 ${
+                      project.disableHoverZoom ? "scale-100" : "group-hover:scale-105"
+                    } ${project.imageClassName ?? "object-cover"}`}
                     style={{ objectPosition: project.objectPosition }}
                   />
                 ) : (
