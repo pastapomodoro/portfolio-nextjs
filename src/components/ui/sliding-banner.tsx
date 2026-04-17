@@ -21,7 +21,7 @@ export function SlidingBanner({
           animationDuration: `${speed}s`
         }}
       >
-        {/* Multiple banner instances for seamless infinite scroll */}
+        {/* Duplicate strip so the scroll can loop */}
         {Array.from({ length: 4 }).map((_, index) => (
           <div key={index} className="flex-shrink-0 h-full">
             <Image

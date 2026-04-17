@@ -4,6 +4,7 @@ import type { ComponentProps, ReactNode } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Instagram, Github, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { CONTACT_MAILTO } from '@/lib/site-contact'
 
 interface FooterLink {
 	title: string
@@ -32,7 +33,7 @@ const footerLinks: FooterSection[] = [
 			{ title: 'Instagram', href: 'https://instagram.com/benzodiazepics', icon: Instagram },
 			{ title: 'GitHub', href: 'https://github.com/pastapomodoro', icon: Github },
 			{ title: 'LinkedIn', href: 'https://linkedin.com/', icon: Linkedin },
-			{ title: 'Mail', href: 'mailto:eugenio.bellini@yahoo.it', icon: Mail },
+			{ title: 'Mail', href: CONTACT_MAILTO, icon: Mail },
 		],
 	},
 ]

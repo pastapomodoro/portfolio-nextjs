@@ -23,7 +23,7 @@ const projects: Project[] = [
     title: "Kawaii OD 2025",
     href: "https://www.behance.net/gallery/226585309/Kawaii-OD-2025",
     imageSrc: "/kawaiiOD.PNG",
-    description: "Brand Design project",
+    description: "Brand-led campaign visuals",
     objectPosition: "40% center"
   },
   {
@@ -39,11 +39,11 @@ const projects: Project[] = [
 
 export default function Page() {
   return (
-    <main className="container mx-auto max-w-6xl px-6 py-16">
-      <div className="flex flex-wrap items-center justify-between gap-6 mb-16">
+    <main className="site-rhythm-block mx-auto max-w-6xl">
+      <div className="mb-12 flex flex-wrap items-center justify-between gap-8 md:mb-16">
         <div>
           <h1 className="text-5xl md:text-7xl font-light tracking-wide text-foreground mb-4">UX/UI</h1>
-          <p className="text-lg font-light text-muted-foreground max-w-xl">Selected UX/UI works and product interface explorations focusing on usability and aesthetics.</p>
+          <p className="text-lg font-light text-muted-foreground max-w-xl">Game menus, product UI, and a few brand-heavy screens — things I drew in Figma and shipped (or nearly shipped) as student work.</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <a href="/works/ux-ui" className="rounded-full px-5 py-2 text-sm font-light bg-primary text-primary-foreground shadow-sm transition-colors">UX/UI</a>
@@ -53,7 +53,7 @@ export default function Page() {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, i) => {
           const card = (
             <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
@@ -74,10 +74,10 @@ export default function Page() {
                   <div className="w-full h-full flex items-center justify-center text-muted-foreground/30 font-medium">Image coming soon</div>
                 )}
               </div>
-              <div className="p-6 md:p-8">
+              <div className="p-8 md:p-10">
                 <h3 className="text-xl font-normal tracking-wide text-foreground mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
                 <p className="text-muted-foreground font-light leading-relaxed">
-                  {project.description || "Short description of the UX/UI project."}
+                  {project.description || "Description coming soon."}
                 </p>
               </div>
             </div>

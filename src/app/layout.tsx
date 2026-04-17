@@ -18,7 +18,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Eugenio Bellini | Portfolio",
   description:
-    "Graphic Designer, Art Director & UX/UI Enthusiast based in Verona, Italy.",
+    "Graphic designer, art direction student, and AI developer/engineer in Verona. UX/UI, branding, motion, and AI-assisted builds.",
 };
 
 export default function RootLayout({

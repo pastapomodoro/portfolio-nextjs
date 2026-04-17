@@ -29,7 +29,7 @@ const PROJECTS: Project[] = [
     year: "2024",
     canvasBg: MINIDEV_CANVAS_BG,
     imageClassName:
-      "object-contain object-center w-full h-full py-6 md:py-10 lg:py-14 px-0",
+      "object-contain object-center w-full h-full p-1 sm:p-2 md:py-10 lg:py-14",
   },
   {
     title: "BloodMoon",
@@ -44,7 +44,8 @@ const PROJECTS: Project[] = [
     image: "/mafiaslime.png",
     url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198",
     year: "2024",
-    imageClassName: "object-contain object-center",
+    imageClassName:
+      "object-contain object-center w-full h-full p-1 sm:p-2 md:p-0",
     disableHoverZoom: true,
   },
   {
@@ -69,11 +70,13 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[60vh] ${isEven ? "" : "lg:flex-row-reverse"}`}>
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 lg:min-h-[60vh] ${isEven ? "" : "lg:flex-row-reverse"}`}
+      >
 
-        {/* Image side */}
+        {/* Image side — square tile on mobile so media fills the frame (not a thin banner) */}
         <div
-          className={`relative overflow-hidden ${project.canvasBg ? "" : "bg-muted"} ${isEven ? "lg:order-2" : "lg:order-1"}`}
+          className={`relative aspect-square w-full overflow-hidden lg:aspect-auto lg:min-h-0 lg:h-full lg:min-h-[50vh] ${project.canvasBg ? "" : "bg-muted"} ${isEven ? "lg:order-2" : "lg:order-1"}`}
           style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -88,7 +91,9 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         </div>
 
         {/* Info side */}
-        <div className={`flex flex-col justify-between p-6 md:p-12 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+        <div
+          className={`site-rhythm-block flex flex-col justify-between ${isEven ? "lg:order-1" : "lg:order-2"}`}
+        >
           <div>
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
               {String(index + 1).padStart(2, "0")}
@@ -105,17 +110,19 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             <p className="text-muted-foreground">{project.year}</p>
           </div>
 
-          <div className="flex items-center justify-between pt-8">
+          <div
+            className={`flex items-center pt-10 md:pt-12 ${project.sourceLabel ? "justify-between" : ""}`}
+          >
             <span
-              className={`text-sm transition-opacity duration-200 ${
-                isHovered ? "opacity-100" : "opacity-0"
+              className={`text-sm transition-opacity duration-200 max-md:opacity-100 ${
+                isHovered ? "md:opacity-100" : "md:opacity-0"
               }`}
             >
-              View Project →
+              Open project →
             </span>
-            <span className="text-xs text-muted-foreground">
-              {project.sourceLabel ?? "Behance"}
-            </span>
+            {project.sourceLabel ? (
+              <span className="text-xs text-muted-foreground">{project.sourceLabel}</span>
+            ) : null}
           </div>
         </div>
       </div>
@@ -128,9 +135,9 @@ export default function WorksSection() {
     <section id="works" className="bg-background">
       {/* Header */}
       <div className="border-b border-border">
-        <div className="flex items-center justify-between p-6 md:p-12">
+        <div className="site-rhythm-header flex items-center justify-between">
           <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Selected Work
+            Selected work
           </h2>
           <span className="text-xs text-muted-foreground">
             {PROJECTS.length} Projects
@@ -142,21 +149,6 @@ export default function WorksSection() {
       {PROJECTS.map((project, i) => (
         <ProjectRow key={project.title} project={project} index={i} />
       ))}
-
-      {/* View all */}
-      <div className="border-b border-border">
-        <a
-          href="https://www.behance.net/eugnbll"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block p-6 md:p-12 hover:bg-muted transition-colors"
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-lg font-medium">View all work on Behance</span>
-            <span>→</span>
-          </div>
-        </a>
-      </div>
     </section>
   );
 }

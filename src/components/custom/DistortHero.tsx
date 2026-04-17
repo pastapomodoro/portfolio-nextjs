@@ -507,7 +507,7 @@ export default function DistortHero({ backgroundUrl }: DistortHeroProps) {
 
           <div className="mt-4">
             <GlitchText
-              text="CREATIVE PORTFOLIO"
+              text="DESIGN WORK — VERONA"
               fontSize="clamp(1.5rem, 4vw, 3rem)"
               fontFamily="'Courier New', monospace"
               fontWeight="400"
@@ -525,9 +525,9 @@ export default function DistortHero({ backgroundUrl }: DistortHeroProps) {
               textShadow: "0 0 10px rgba(0, 255, 136, 0.5), 2px 0 #0088ff, -2px 0 #00ff88",
             }}
           >
-            {">"} VISUAL.STORYTELLER {"<"}
+            {">"} UX/UI, BRAND, MOTION {"<"}
             <br />
-            {">"} DESIGN.INNOVATOR {"<"}
+            {">"} STUDENT PROJECTS {"<"}
           </p>
 
           <div ref={buttonRef}>
@@ -536,7 +536,7 @@ export default function DistortHero({ backgroundUrl }: DistortHeroProps) {
               className="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white border-0 px-10 py-4 text-lg font-mono uppercase tracking-wider transition-all duration-300 transform hover:scale-105"
             >
               <span className="relative z-10">
-                {">"} ESPLORA_PORTFOLIO {"<"}
+                {">"} SEE_WORK {"<"}
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
             </Button>
@@ -546,11 +546,11 @@ export default function DistortHero({ backgroundUrl }: DistortHeroProps) {
 
       {/* Glitch UI Elements */}
       <div className="absolute top-8 left-8 z-30">
-        <div className="text-blue-400 font-mono text-xs tracking-wider">{">"} CREATIVE.STATUS</div>
+        <div className="text-blue-400 font-mono text-xs tracking-wider">{">"} ONLINE</div>
       </div>
 
       <div className="absolute top-8 right-8 z-30">
-        <div className="text-green-400 font-mono text-xs tracking-wider">DESIGN.MODE {"<"}</div>
+        <div className="text-green-400 font-mono text-xs tracking-wider">AVAILABLE {"<"}</div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">

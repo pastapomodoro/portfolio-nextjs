@@ -97,7 +97,7 @@ const CATEGORIES: Category[] = [
       },
       {
         title: "A Certain Blue",
-        description: "Digital Editorial — Colour",
+        description: "Editorial on the color blue",
         image: "/certainblu.png",
         url: "https://www.behance.net/gallery/234515935/A-certain-blue-enters-your-soul-Editorial-Project",
       },
@@ -151,7 +151,7 @@ function ProjectCard({ project }: { project: Project }) {
             style={{ background: "linear-gradient(90deg, #7ec4b8, #5eada0)" }}
           />
           <span className="relative flex items-center gap-1 px-3 py-1 rounded-full bg-background text-[10px] text-foreground">
-            View ↗
+            Open ↗
           </span>
         </div>
       </div>
@@ -178,7 +178,7 @@ function CategoryRow({
       {/* Category header row — click to toggle */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="group w-full flex items-center justify-between py-5 md:py-10 border-t border-border hover:border-foreground/30 transition-colors duration-500 cursor-pointer text-left"
+        className="group flex w-full cursor-pointer items-center justify-between border-t border-border py-6 text-left transition-colors duration-500 hover:border-foreground/30 md:py-8"
       >
         {/* Left: index + label */}
         <div className="flex items-baseline gap-5 md:gap-8">
@@ -229,7 +229,7 @@ function CategoryRow({
             transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <div className="pb-8 md:pb-10">
+            <div className="pb-12 md:pb-14">
               <div
                 className={`grid gap-4 md:gap-5 ${
                   category.projects.length === 2
@@ -251,11 +251,8 @@ function CategoryRow({
 
 export default function AllProjectsSection() {
   return (
-    <section
-      id="all-projects"
-      className="bg-background py-16 md:py-24"
-    >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="all-projects" className="bg-background">
+      <div className="site-rhythm-block mx-auto max-w-[1200px]">
         {/* Header */}
         <motion.div
           className="mb-2"
@@ -264,14 +261,14 @@ export default function AllProjectsSection() {
           transition={{ duration: 0.75, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true, margin: "-80px" }}
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="mb-8 flex items-center gap-3 md:mb-10">
             <div className="w-6 h-px bg-border" />
             <span className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.35em]">
               All Work
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl lg:text-6xl text-foreground font-light leading-tight">
-            Browse by{" "}
+            Same projects, sorted by{" "}
             <span
               className="text-teal"
               style={{
@@ -279,7 +276,7 @@ export default function AllProjectsSection() {
                 fontStyle: "italic",
               }}
             >
-              category
+              type
             </span>
           </h2>
         </motion.div>

@@ -1,9 +1,10 @@
 "use client";
 
+import { EmailMeButton } from "@/components/EmailMeButton";
+
 const SOCIALS = [
   { label: "Instagram", handle: "@benzodiazepics", href: "https://instagram.com/benzodiazepics" },
   { label: "GitHub", handle: "pastapomodoro", href: "https://github.com/pastapomodoro" },
-  { label: "Behance", handle: "eugnbll", href: "https://www.behance.net/eugnbll" },
 ];
 
 export default function ContactSection() {
@@ -11,7 +12,7 @@ export default function ContactSection() {
     <section id="contact" className="bg-background">
       {/* Header */}
       <div className="border-b border-border">
-        <div className="p-6 md:p-12">
+        <div className="site-rhythm-header">
           <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             Contact
           </h2>
@@ -21,39 +22,37 @@ export default function ContactSection() {
       {/* Content */}
       <div className="grid grid-cols-1 lg:grid-cols-2 border-b border-border">
         {/* CTA */}
-        <div className="p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-border">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.2] mb-8">
-            Let&apos;s work
+        <div className="site-rhythm-block flex max-md:py-8 flex-col space-y-5 border-b md:space-y-8 lg:border-b-0 lg:border-r border-border">
+          <p className="text-2xl font-medium leading-[1.15] tracking-tight sm:text-3xl md:text-4xl md:leading-[1.2] lg:text-5xl">
+            Want to talk
             <br />
-            together.
+            about a project?
           </p>
-          <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
-            Open to freelance projects, internships, and creative collaborations.
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+            I take freelance jobs when the schedule allows, and I&apos;m interested in internships
+            or short-term help on a team. Send a short note and I&apos;ll reply when I can.
           </p>
-          <a
-            href="mailto:eugenio.bellini@yahoo.it"
-            className="inline-block text-lg underline underline-offset-4 hover:opacity-60 transition-opacity"
-          >
-            eugenio.bellini@yahoo.it
-          </a>
+          <EmailMeButton variant="large" className="max-md:w-full max-md:max-w-xs" />
         </div>
 
         {/* Links */}
-        <div className="p-6 md:p-12">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
+        <div className="site-rhythm-block max-md:py-8">
+          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-muted-foreground md:mb-6 lg:mb-8">
             Links
           </p>
-          <div className="space-y-0">
+          <div className="divide-y divide-border border border-border">
             {SOCIALS.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between py-4 border-b border-border hover:bg-muted transition-colors -mx-6 md:-mx-12 px-6 md:px-12"
+                className="flex items-center justify-between gap-3 py-3 transition-colors hover:bg-muted md:py-5"
               >
-                <span>{social.label}</span>
-                <span className="text-muted-foreground text-sm">{social.handle}</span>
+                <span className="text-sm md:text-base">{social.label}</span>
+                <span className="shrink-0 text-xs text-muted-foreground tabular-nums md:text-sm">
+                  {social.handle}
+                </span>
               </a>
             ))}
           </div>
@@ -61,16 +60,10 @@ export default function ContactSection() {
       </div>
 
       {/* Footer */}
-      <div className="p-6 md:p-12">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500" />
-            <span className="text-sm text-muted-foreground">Available for projects</span>
-          </div>
-          <span className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Eugenio Bellini
-          </span>
-        </div>
+      <div className="site-rhythm-header max-md:py-5">
+        <p className="text-center text-sm text-muted-foreground md:text-left">
+          © {new Date().getFullYear()} Eugenio Bellini
+        </p>
       </div>
     </section>
   );

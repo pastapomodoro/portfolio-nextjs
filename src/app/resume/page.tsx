@@ -1,10 +1,15 @@
+import { CV_HREF } from "@/lib/site-contact";
+
 export default function Page() {
   return (
-    <main className="container mx-auto max-w-4xl px-6 py-32">
-      <div className="text-center mb-16">
+    <main className="site-rhythm-block mx-auto max-w-4xl">
+      <div className="mb-12 text-center md:mb-14">
         <h1 className="text-5xl md:text-7xl font-light tracking-wide text-foreground mb-4 font-heading">Resume</h1>
         <div className="w-16 h-px bg-foreground mx-auto mb-6"></div>
-        <p className="text-lg font-light text-muted-foreground max-w-xl mx-auto">Graphic Designer, Art Director, and UX/UI Enthusiast based in Verona, Italy.</p>
+        <p className="text-lg font-light text-muted-foreground max-w-xl mx-auto">
+          Graphic designer and art direction student in Verona. AI developer and engineer. UX/UI,
+          branding, and motion.
+        </p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8 items-start justify-center">
@@ -16,15 +21,17 @@ export default function Page() {
             <ul className="space-y-6 text-foreground/80 text-lg font-light">
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1 font-mono">01.</span>
-                <span>Graphic Design & Art Direction student based in Verona</span>
+                <span>
+                  Graphic design, art direction, and AI developer/engineer work — based in Verona
+                </span>
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1">02.</span>
-                <span>Passionate about UX/UI, motion graphics, branding, and visual storytelling</span>
+                <span>Strong interest in UX/UI, motion, branding, and clear visual communication</span>
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1">03.</span>
-                <span>Merging traditional design skills with AI-assisted workflows (Adobe CC, Figma, Blender, AI tools)</span>
+                <span>Comfortable with Adobe CC, Figma, Blender, and AI tools when they save time on a task</span>
               </li>
             </ul>
           </div>
@@ -32,7 +39,7 @@ export default function Page() {
 
         <div className="w-full md:w-1/3">
           <a
-            href="/cv.pdf"
+            href={CV_HREF}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-muted/50 p-10 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl text-foreground"
@@ -46,7 +53,7 @@ export default function Page() {
             </div>
             <div className="text-center">
               <h3 className="text-lg font-normal tracking-wide mb-1">Download CV</h3>
-              <p className="text-sm font-light opacity-70">PDF Format</p>
+              <p className="text-sm font-light opacity-70">PDF</p>
             </div>
           </a>
         </div>
