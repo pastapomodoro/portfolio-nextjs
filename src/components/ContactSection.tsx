@@ -13,7 +13,8 @@ export default function ContactSection() {
       {/* Header */}
       <div className="border-b border-border">
         <div className="site-rhythm-header">
-          <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <h2 className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <span aria-hidden className="inline-block size-1.5 bg-brand" />
             Contact
           </h2>
         </div>
@@ -37,7 +38,8 @@ export default function ContactSection() {
 
         {/* Links */}
         <div className="site-rhythm-block max-md:py-8">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-muted-foreground md:mb-6 lg:mb-8">
+          <p className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground md:mb-6 lg:mb-8">
+            <span aria-hidden className="inline-block size-1.5 bg-brand" />
             Links
           </p>
           <div className="divide-y divide-border border border-border">
@@ -47,9 +49,11 @@ export default function ContactSection() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 py-3 transition-colors hover:bg-muted md:py-5"
+                className="group flex items-center justify-between gap-3 py-3 transition-colors hover:bg-muted md:py-5"
               >
-                <span className="text-sm md:text-base">{social.label}</span>
+                <span className="text-sm underline decoration-transparent decoration-2 underline-offset-4 transition-colors group-hover:decoration-brand md:text-base">
+                  {social.label}
+                </span>
                 <span className="shrink-0 text-xs text-muted-foreground tabular-nums md:text-sm">
                   {social.handle}
                 </span>

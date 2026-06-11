@@ -136,7 +136,8 @@ export default function WorksSection() {
       {/* Header */}
       <div className="border-b border-border">
         <div className="site-rhythm-header flex items-center justify-between">
-          <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <h2 className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <span aria-hidden className="inline-block size-1.5 bg-brand" />
             Selected work
           </h2>
           <span className="text-xs text-muted-foreground">

@@ -48,7 +48,8 @@ export default function HeroSection() {
           {/* Left - Info */}
           <div className="site-rhythm-block flex min-h-[50vh] flex-col justify-between border-b lg:min-h-[calc(100vh-4rem)] lg:border-b-0 lg:border-r border-border">
             <div>
-              <p className="mb-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="mb-6 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                <span aria-hidden className="inline-block size-1.5 bg-brand" />
                 Graphic Designer · Art Director · AI System Analyst
               </p>
               <h1 className="mb-8 text-4xl font-medium leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">

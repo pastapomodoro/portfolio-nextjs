@@ -34,7 +34,8 @@ export default function AboutSection() {
       {/* Header */}
       <div className="border-b border-border">
         <div className="site-rhythm-header">
-          <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <h2 className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <span aria-hidden className="inline-block size-1.5 bg-brand" />
             About
           </h2>
         </div>
@@ -62,7 +63,7 @@ export default function AboutSection() {
             href={CV_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm underline underline-offset-4 hover:opacity-60 transition-opacity"
+            className="inline-block text-sm underline decoration-brand decoration-2 underline-offset-4 hover:opacity-60 transition-opacity"
           >
             Download CV
           </a>

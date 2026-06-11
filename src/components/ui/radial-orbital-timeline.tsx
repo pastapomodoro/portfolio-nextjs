@@ -165,13 +165,13 @@ export default function RadialOrbitalTimeline({
           style={{ perspective: "1000px" }}
         >
           {/* Central hub */}
-          <div className="absolute w-16 h-16 rounded-full bg-foreground flex items-center justify-center z-10">
-            <div className="absolute w-20 h-20 rounded-full border border-foreground/20 animate-ping opacity-70"></div>
+          <div className="absolute w-16 h-16 rounded-full bg-brand flex items-center justify-center z-10">
+            <div className="absolute w-20 h-20 rounded-full border border-brand/40 animate-ping opacity-70"></div>
             <div
-              className="absolute w-24 h-24 rounded-full border border-foreground/10 animate-ping opacity-50"
+              className="absolute w-24 h-24 rounded-full border border-brand/20 animate-ping opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
-            <div className="w-8 h-8 rounded-full bg-background/90"></div>
+            <div className="w-8 h-8 rounded-full bg-brand-foreground"></div>
           </div>
 
           {/* Orbit ring */}
@@ -292,7 +292,7 @@ export default function RadialOrbitalTimeline({
                         </div>
                         <div className="w-full h-1 bg-muted overflow-hidden">
                           <div
-                            className="h-full bg-foreground"
+                            className="h-full bg-brand"
                             style={{ width: `${item.energy}%` }}
                           ></div>
                         </div>

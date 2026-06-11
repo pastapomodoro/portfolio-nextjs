@@ -44,9 +44,20 @@ All defined in `:root` in `globals.css`. The palette is intentionally grayscale 
 | `--destructive` | `#ff0000` | errors only |
 | `--color-surface` | `#f8fafa` | alt surface |
 | `--color-stroke` | `#d1e0e0` | alt hairline |
+| **`--brand`** | **`#aaff00`** | **neon lime accent — the single chromatic accent** |
+| `--brand-bright` | `#caff33` | hover / lighter variant |
+| `--brand-deep` | `#7acc00` | pressed variant |
+| `--brand-foreground` | `#0c0a00` | dark text ON lime fills (never white-on-lime) |
 
 **Rule:** text is `text-foreground` or `text-muted-foreground`. Backgrounds are
 `bg-background` or `bg-muted`. Borders are always `border-border`.
+
+**Accent (`ugibrand`).** Lime is the only chromatic color and is used **scarcely**:
+primary CTAs (`bg-brand text-brand-foreground hover:bg-brand-bright`), the keyboard
+focus ring, section eyebrow markers (`<span className="size-1.5 bg-brand" />`), link
+underlines (`decoration-brand`), and live dots. Never lime as a large fill, never lime
+text on white (poor contrast — use it as a fill or underline instead). Full brand spec
+lives in [`ugibrand/SKILL.md`](ugibrand/SKILL.md).
 
 ---
 

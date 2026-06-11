@@ -43,6 +43,10 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-teal: var(--teal);
   --color-teal-light: var(--teal-light);
+  --color-brand: var(--brand);
+  --color-brand-bright: var(--brand-bright);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-foreground: var(--brand-foreground);
 }
 
 :root {
@@ -68,6 +72,11 @@
   --ring: #000000;
   --teal: #000000;
   --teal-light: #333333;
+  /* ugibrand — single neon lime accent (use scarcely) */
+  --brand: #aaff00;
+  --brand-bright: #caff33;
+  --brand-deep: #7acc00;
+  --brand-foreground: #0c0a00;
   --chart-1: #000000;
   --chart-2: #333333;
   --chart-3: #666666;
@@ -111,6 +120,12 @@
   body {
     @apply bg-background text-foreground;
     scroll-behavior: smooth;
+  }
+
+  /* ugibrand — keyboard focus uses the lime accent */
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
   }
 }
 
