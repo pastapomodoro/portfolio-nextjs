@@ -22,7 +22,7 @@ export default function Page() {
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1 font-mono">01.</span>
                 <span>
-                  Graphic design, art direction, and AI developer/engineer work — based in Verona
+                  Graphic design, art direction, and AI developer/engineer work, based in Verona
                 </span>
               </li>
               <li className="flex gap-4 items-start">

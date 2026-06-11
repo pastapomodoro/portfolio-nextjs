@@ -30,7 +30,7 @@ const footerLinks: FooterSection[] = [
 	{
 		label: 'Social',
 		links: [
-			{ title: 'Instagram', href: 'https://instagram.com/benzodiazepics', icon: Instagram },
+			{ title: 'Instagram', href: 'https://instagram.com/euxeney', icon: Instagram },
 			{ title: 'GitHub', href: 'https://github.com/pastapomodoro', icon: Github },
 			{ title: 'LinkedIn', href: 'https://linkedin.com/', icon: Linkedin },
 			{ title: 'Mail', href: CONTACT_MAILTO, icon: Mail },

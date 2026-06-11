@@ -3,7 +3,7 @@
 import { EmailMeButton } from "@/components/EmailMeButton";
 
 const SOCIALS = [
-  { label: "Instagram", handle: "@benzodiazepics", href: "https://instagram.com/benzodiazepics" },
+  { label: "Instagram", handle: "@euxeney", href: "https://instagram.com/euxeney" },
   { label: "GitHub", handle: "pastapomodoro", href: "https://github.com/pastapomodoro" },
 ];
 

@@ -43,7 +43,7 @@ export default function Page() {
       <div className="mb-12 flex flex-wrap items-center justify-between gap-8 md:mb-16">
         <div>
           <h1 className="text-5xl md:text-7xl font-light tracking-wide text-foreground mb-4">UX/UI</h1>
-          <p className="text-lg font-light text-muted-foreground max-w-xl">Game menus, product UI, and a few brand-heavy screens — things I drew in Figma and shipped (or nearly shipped) as student work.</p>
+          <p className="text-lg font-light text-muted-foreground max-w-xl">Game menus, product UI, and a few brand-heavy screens, things I drew in Figma and shipped (or nearly shipped) as student work.</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <a href="/works/ux-ui" className="rounded-full px-5 py-2 text-sm font-light bg-primary text-primary-foreground shadow-sm transition-colors">UX/UI</a>

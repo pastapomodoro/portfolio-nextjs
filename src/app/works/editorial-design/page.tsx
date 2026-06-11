@@ -16,7 +16,7 @@ const projects: Project[] = [
     title: "MINIDEV – memo recorder portatile",
     href: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
     imageSrc: "/minidev.png",
-    description: "Portable memo recorder — product UI",
+    description: "Portable memo recorder, product UI",
     imageClassName:
       "object-contain object-center w-full h-full py-6 md:py-8 px-0",
     canvasBg: MINIDEV_CANVAS_BG,

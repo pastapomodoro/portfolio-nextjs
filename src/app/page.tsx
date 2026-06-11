@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import LoadingScreen from "@/components/LoadingScreen";
+// import ToolfolioSection from "@/components/ToolfolioSection"; // hidden — re-enable to show the toolfolio
 import HeroSection from "@/components/HeroSection";
 import WorksSection from "@/components/WorksSection";
 import AboutSection from "@/components/AboutSection";
@@ -19,6 +20,7 @@ export default function Home() {
 
       {!loading && (
         <>
+          {/* <ToolfolioSection /> hidden for now */}
           <HeroSection />
           <WorksSection />
           <AboutSection />

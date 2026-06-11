@@ -49,7 +49,7 @@ export default function HeroSection() {
           <div className="site-rhythm-block flex min-h-[50vh] flex-col justify-between border-b lg:min-h-[calc(100vh-4rem)] lg:border-b-0 lg:border-r border-border">
             <div>
               <p className="mb-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Graphic Designer · Art Director · AI Developer &amp; Engineer
+                Graphic Designer · Art Director · AI System Analyst
               </p>
               <h1 className="mb-8 text-4xl font-medium leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
                 Interfaces, brands,
@@ -57,9 +57,9 @@ export default function HeroSection() {
                 and motion.
               </h1>
               <p className="text-muted-foreground max-w-md leading-relaxed">
-                I&apos;m an interactive design and art direction student in Verona, Italy.
-                I also build with AI tooling and small full-stack experiments. Most of my time still
-                goes to UX/UI, branding, and motion.
+                I&apos;m a designer and art director based in Milan, now working as an AI System
+                Analyst. I build internal tools and automations on node-based systems, mainly
+                Weavy, while most of my craft still goes to UX/UI, branding, and motion.
               </p>
             </div>
 

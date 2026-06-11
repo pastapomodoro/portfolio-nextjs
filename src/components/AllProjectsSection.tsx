@@ -74,7 +74,7 @@ const CATEGORIES: Category[] = [
     projects: [
       {
         title: "MafiaSlime II",
-        description: "Web Design — K100 Label",
+        description: "Web Design, K100 Label",
         image: "/mafiaslime.png",
         url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198&p=f&t=j0KKPirDqASmgpdX-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=134%3A16",
         imageClassName: "object-contain object-center",
