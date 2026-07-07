@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas";
 
 interface Project {
@@ -25,7 +26,7 @@ const PROJECTS: Project[] = [
     title: "MINIDEV",
     category: "UX/UI",
     image: "/minidev.png",
-    url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
+    url: "/works/minidev",
     year: "2024",
     canvasBg: MINIDEV_CANVAS_BG,
     imageClassName:
@@ -35,14 +36,14 @@ const PROJECTS: Project[] = [
     title: "BloodMoon",
     category: "Visual Identity",
     image: "/bloodyrender.png",
-    url: "https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity",
+    url: "/works/bloodmoon",
     year: "2024",
   },
   {
     title: "MafiaSlime II",
     category: "Web Design",
     image: "/mafiaslime.png",
-    url: "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198",
+    url: "/works/mafiaslime",
     year: "2024",
     imageClassName:
       "object-contain object-center w-full h-full p-1 sm:p-2 md:p-0",
@@ -52,7 +53,7 @@ const PROJECTS: Project[] = [
     title: "Kawaii OD 2025",
     category: "Brand Design",
     image: "/kawaiiOD.PNG",
-    url: "https://www.behance.net/gallery/226585309/Kawaii-OD-2025",
+    url: "/works/kawaii-od",
     year: "2024",
   },
 ];
@@ -62,10 +63,8 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
   const isEven = index % 2 === 0;
 
   return (
-    <a
+    <Link
       href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
       className="group block border-b border-border"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -126,7 +125,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

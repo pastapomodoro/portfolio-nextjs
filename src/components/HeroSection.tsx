@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { EmailMeButton } from "@/components/EmailMeButton";
 
 const NAV_ITEMS = [
   { label: "Work", href: "works" },
+  { label: "Services", href: "services" },
   { label: "About", href: "about" },
   { label: "Contact", href: "contact" },
 ];
+
+const NAV_LINKS = ["services"];
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -28,15 +32,25 @@ export default function HeroSection() {
             Eugenio Bellini
           </button>
           <div className="flex items-center gap-8">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollTo(item.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-              >
-                {item.label}
-              </button>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              NAV_LINKS.includes(item.href) ? (
+                <Link
+                  key={item.label}
+                  href={`/${item.href}`}
+                  className="text-sm font-medium text-foreground hover:opacity-60 transition-opacity"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={() => scrollTo(item.href)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </div>
         </div>
       </nav>
