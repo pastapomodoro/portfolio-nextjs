@@ -46,18 +46,18 @@ export default function AboutSection() {
         {/* Bio */}
         <div className="site-rhythm-block max-md:py-10 space-y-6 border-b md:space-y-8 lg:border-b-0 lg:border-r border-border">
           <p className="text-2xl font-medium leading-[1.3] tracking-tight md:text-3xl lg:text-4xl">
-            Eugenio, Designer and AI System Analyst. Based in Milan.
+            Eugenio, Creative Technologist and AI Engineer. Based in Milan.
           </p>
           <p className="max-w-lg leading-relaxed text-muted-foreground">
-            For the past few months I&apos;ve been leading content-generation automation on
-            node-based systems, mainly Weavy, while building internal tooling with the help
-            of AI coding tools. I&apos;m focused on automation and system prompting to make the
-            workflows we use as fast and effective as possible.
+            I design AI pipelines, build interfaces, and work at the intersection of creative
+            production and engineering. Currently finishing a degree in Graphic Design &amp; Art
+            Direction while shipping production AI systems for real creative workflows.
           </p>
           <p className="max-w-lg leading-relaxed text-muted-foreground">
-            Alongside that, I care about clear layouts, readable type, and UI that doesn&apos;t
-            fight the user, using motion when it makes something easier to understand, not just
-            for show.
+            At Accenture Song I designed and built an end-to-end AI video intelligence pipeline
+            for Frame.io — Google Gemini watches each video and auto-generates structured,
+            searchable metadata from a large untagged archive. Alongside that, I built the
+            companion web dashboard and Framey, a natural language chatbot for video discovery.
           </p>
           <a
             href={CV_HREF}

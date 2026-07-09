@@ -7,8 +7,8 @@ export default function Page() {
         <h1 className="text-5xl md:text-7xl font-light tracking-wide text-foreground mb-4 font-heading">Resume</h1>
         <div className="w-16 h-px bg-foreground mx-auto mb-6"></div>
         <p className="text-lg font-light text-muted-foreground max-w-xl mx-auto">
-          Graphic designer and art direction student in Verona. AI developer and engineer. UX/UI,
-          branding, and motion.
+          Creative Technologist &amp; AI Engineer based in Milan. AI pipeline design, interface
+                    development, and creative production at the intersection of design and engineering.
         </p>
       </div>
 
@@ -22,16 +22,16 @@ export default function Page() {
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1 font-mono">01.</span>
                 <span>
-                  Graphic design, art direction, and AI developer/engineer work, based in Verona
+                  Creative Technologist &amp; AI Engineer — degree in Graphic Design &amp; Art Direction, shipping production AI systems
                 </span>
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1">02.</span>
-                <span>Strong interest in UX/UI, motion, branding, and clear visual communication</span>
+                <span>Designed and built an end-to-end AI video intelligence pipeline at Accenture Song</span>
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-muted-foreground text-sm mt-1">03.</span>
-                <span>Comfortable with Adobe CC, Figma, Blender, and AI tools when they save time on a task</span>
+                <span>AI pipeline design, multimodal systems, agent development, creative production with gen AI tools</span>
               </li>
             </ul>
           </div>
