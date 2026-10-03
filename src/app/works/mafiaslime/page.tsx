@@ -47,8 +47,8 @@ export default function MafiaslimePage() {
                 MafiaSlime II
               </h1>
               <p className="text-muted-foreground max-w-md leading-relaxed text-sm mt-8">
-                Sito web per MafiaSlime II, gioco online. Design giocoso e colorato
-                con elementi dinamici per un&apos;esperienza di navigazione coinvolgente.
+                A website for MafiaSlime II, an online game. A playful, colorful design
+                with dynamic elements for an engaging browsing experience.
               </p>
             </div>
           </div>
@@ -69,20 +69,20 @@ export default function MafiaslimePage() {
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2 text-[#00cc66]">
               01 — Overview
             </p>
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">Un sito per la community</h3>
+            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">A website for the community</h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              Design pensato per catturare l&apos;energia del gioco e della community.
-              Interfaccia dinamica che riflette il tono vivace e competitivo del brand.
+              A design that captures the energy of the game and its community.
+              A dynamic interface reflects the brand&apos;s lively, competitive tone.
             </p>
           </div>
           <div className="site-rhythm-block">
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2 text-[#00cc66]">
-              02 — Dettagli
+              02 — Details
             </p>
             <div className="space-y-4 text-sm text-muted-foreground">
-              <div><span className="text-foreground font-medium">Ruolo:</span> UI/UX Design, Sviluppo Frontend</div>
-              <div><span className="text-foreground font-medium">Strumenti:</span> Figma, Framer</div>
-              <div><span className="text-foreground font-medium">Concept:</span> Giocoso, dinamico, colorato</div>
+              <div><span className="text-foreground font-medium">Role:</span> UI/UX Design, Frontend Development</div>
+              <div><span className="text-foreground font-medium">Tools:</span> Figma, Framer</div>
+              <div><span className="text-foreground font-medium">Concept:</span> Playful, dynamic, colorful</div>
             </div>
           </div>
         </div>
