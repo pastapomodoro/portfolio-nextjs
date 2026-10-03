@@ -27,10 +27,10 @@ const projects: Project[] = [
     objectPosition: "40% center"
   },
   {
-    title: "MINIDEV – memo recorder portatile",
+    title: "MINIDEV – portable memo recorder",
     href: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
     imageSrc: "/minidev.png",
-    description: "Portable memo recorder UI",
+    description: "Product design concept created in Figma",
     imageClassName:
       "object-contain object-center w-full h-full py-6 md:py-8 px-0",
     canvasBg: MINIDEV_CANVAS_BG,
@@ -52,7 +52,7 @@ export default function Page() {
           <a href="/works/editorial-design" className="rounded-full px-5 py-2 text-sm font-light border border-border bg-background hover:bg-muted text-foreground transition-colors">Editorial</a>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, i) => {
           const card = (
