@@ -41,7 +41,7 @@ const CATEGORIES: Category[] = [
       },
       {
         title: "MINIDEV",
-        description: "Portable Memo Recorder UI",
+        description: "Product design concept created in Figma",
         image: "/minidev.png",
         url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
         canvasBg: MINIDEV_CANVAS_BG,
@@ -88,7 +88,7 @@ const CATEGORIES: Category[] = [
     projects: [
       {
         title: "MINIDEV",
-        description: "Portable Memo Recorder UI",
+        description: "Product design concept created in Figma",
         image: "/minidev.png",
         url: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
         canvasBg: MINIDEV_CANVAS_BG,
