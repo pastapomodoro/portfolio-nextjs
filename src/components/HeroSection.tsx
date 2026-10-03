@@ -1,129 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { EmailMeButton } from "@/components/EmailMeButton";
 
-const NAV_ITEMS = [
-  { label: "Work", href: "works" },
-  { label: "Services", href: "services" },
-  { label: "About", href: "about" },
-  { label: "Contact", href: "contact" },
-];
-
-const NAV_LINKS = ["services"];
-
-function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}
-
+/* Cinematic hero with unframed typography over the project film. */
 export default function HeroSection() {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-
+  const reduced = useReducedMotion();
+  const video = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const element = video.current;
+    if (!element) return;
+    if (reduced) element.pause();
+    else if (reduced === false) void element.play().catch(() => undefined);
+  }, [reduced]);
   return (
     <>
-      {/* Fixed Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-        <div className="flex h-16 items-center justify-between px-6 md:px-12">
-          <button
-            onClick={() => scrollTo("home")}
-            className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity cursor-pointer"
-          >
-            Eugenio Bellini
-          </button>
-          <div className="flex items-center gap-8">
-            {NAV_ITEMS.map((item) =>
-              NAV_LINKS.includes(item.href) ? (
-                <Link
-                  key={item.label}
-                  href={`/${item.href}`}
-                  className="text-sm font-medium text-foreground hover:opacity-60 transition-opacity"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.label}
-                  onClick={() => scrollTo(item.href)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                >
-                  {item.label}
-                </button>
-              )
-            )}
-          </div>
-        </div>
+      <nav className="folio-nav" aria-label="Main navigation">
+        <div className="folio-nav-links"><a href="#works">Work <sup>04</sup></a><a href="#about">About</a><Link href="/services">Services</Link><button type="button" className="folio-nav-contact" onClick={() => window.dispatchEvent(new Event("open-contact-modal"))} aria-label="Contact">Contact <ArrowUpRight size={15} /></button></div>
       </nav>
-
-      <section id="home" className="min-h-screen bg-background pt-16">
-        {/* Hero split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
-
-          {/* Left - Info */}
-          <div className="site-rhythm-block flex min-h-[50vh] flex-col justify-between border-b lg:min-h-[calc(100vh-4rem)] lg:border-b-0 lg:border-r border-border">
-            <div>
-              <p className="mb-6 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                <span aria-hidden className="inline-block size-1.5 bg-brand" />
-                Graphic Designer · Art Director · AI System Analyst
-              </p>
-              <h1 className="mb-8 text-4xl font-medium leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-                Interfaces, brands,
-                <br />
-                and motion.
-              </h1>
-              <p className="text-muted-foreground max-w-md leading-relaxed">
-                I&apos;m a designer and art director based in Milan, now working as an AI System
-                Analyst. I build internal tools and automations on node-based systems, mainly
-                Weavy, while most of my craft still goes to UX/UI, branding, and motion.
-              </p>
-            </div>
-
-            <div className="mt-10 flex justify-end border-t border-border pt-10 md:mt-12 md:pt-12">
-              <EmailMeButton label="Get in touch" />
-            </div>
-          </div>
-
-          {/* Right - Featured Project Preview */}
-          <div className="relative bg-muted">
-            <a
-              href="https://www.behance.net/gallery/244534131/Aethereal-Access-Game-Menu-Design-UXUI-Project"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block h-full min-h-[50vh] lg:min-h-full relative group"
-              onMouseEnter={() => setHoveredProject("ethereal")}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-                <video
-                src="/comp2.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-
-              {/* Overlay info */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-6 pb-8 pt-16 md:px-12 md:pb-10 md:pt-20">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-2">
-                  Recent piece
-                </p>
-                <h2 className="text-2xl md:text-3xl text-white font-medium tracking-tight">
-                  ETHEREAL:ACCESS_01
-                </h2>
-                <p className="mt-2 text-sm text-white/60">UX/UI design, 2025</p>
-              </div>
-
-              {/* View indicator */}
-              <div
-                className={`absolute top-8 right-8 md:top-10 md:right-10 px-4 py-2 bg-white text-black text-xs uppercase tracking-wider transition-opacity duration-200 ${
-                  hoveredProject === "ethereal" ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                Open project →
-              </div>
-            </a>
-          </div>
-        </div>
+      <section id="home" className="cinema-hero" aria-label="Eugenio Bellini, designer based in Milan">
+        <video ref={video} className="cinema-film" src="/comp2.mp4" poster="/GameMenu.png" loop muted playsInline preload="metadata" />
+        <div className="cinema-shade" aria-hidden="true" />
+        <div className="cinema-topline"><span>Design, in my own way.</span></div>
+        <motion.div className="hero-title-overlay" initial={reduced ? false : { y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.05, ease: [0.22, 1, 0.36, 1] }}>
+          <p className="hero-location">Designer / Milan, IT</p>
+          <h1><span>Eugenio</span><span>Bellini.</span></h1>
+          <div className="hero-title-footer"><p>Interfaces. Images. Experiments.</p><a href="#works" aria-label="Explore selected work"><ArrowDown size={26} /></a></div>
+        </motion.div>
+        <a className="hero-feature-link" href="https://www.behance.net/gallery/244534131/Aethereal-Access-Game-Menu-Design-UXUI-Project" target="_blank" rel="noopener noreferrer"><span>On screen</span><strong>ETHEREAL:ACCESS_01</strong><ArrowUpRight size={18} /></a>
       </section>
     </>
   );
