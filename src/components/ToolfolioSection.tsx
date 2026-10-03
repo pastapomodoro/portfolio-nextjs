@@ -11,7 +11,7 @@ const TOOLFOLIO_DATA: TimelineItem[] = [
     id: 1,
     title: "MINIDEV",
     date: "2024 – 2025",
-    content: "Portable memo recorder: product concept, UX/UI and editorial.",
+    content: "Portable memo recorder: a product design concept created in Figma.",
     category: "UX/UI",
     icon: Mic,
     relatedIds: [2, 5],
