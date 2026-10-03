@@ -18,7 +18,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Eugenio Bellini | Portfolio",
   description:
-    "Designer, art director, and AI System Analyst based in Milan. UX/UI, branding, motion, and AI-driven automation.",
+    "Eugenio Bellini, designer based in Milan. Interfaces, visual identities, and experiments with code.",
 };
 
 export default function RootLayout({
