@@ -1,59 +1,60 @@
 "use client";
 
 import Link from "next/link";
+import { CONTACT_MAILTO } from "@/lib/site-contact";
 
 const SERVICES = [
   {
     id: "01",
     title: "AI Workflow Audit",
     description:
-      "Mappatura dei processi aziendali per identificare dove l'AI può automatizzare, ridurre costi e accelerare decisioni. Consegno un report con priorità, effort stimato e ROI atteso.",
-    rate: "A partire da €2.500",
+      "I map business processes to identify where AI can automate tasks, reduce costs, and speed up decisions. You receive a report with priorities, estimated effort, and expected ROI.",
+    rate: "Starting at €2,500",
   },
   {
     id: "02",
     title: "Custom AI Agents",
     description:
-      "Progetto e sviluppo di agenti AI verticali per il tuo dominio: customer support automation, lead qualification, content operations, compliance review. Architetture multi-agente con orchestrazione MCP/A2A.",
-    rate: "Progetto, da €5.000",
+      "I design and build AI agents for your domain: customer support automation, lead qualification, content operations, and compliance review. Multi-agent architectures with MCP/A2A orchestration.",
+    rate: "Projects from €5,000",
   },
   {
     id: "03",
     title: "AI System Integration",
     description:
-      "Integrazione di modelli LLM e agenti AI nei tuoi sistemi esistenti (CRM, ERP, piattaforme no-code). Node-based workflow design con Weavy o custom orchestration layer.",
-    rate: "Progetto, da €3.000",
+      "I integrate LLMs and AI agents into your existing systems, including CRM, ERP, and no-code platforms. Node-based workflows in Weavy or a custom orchestration layer.",
+    rate: "Projects from €3,000",
   },
   {
     id: "04",
     title: "Team Training & Adoption",
     description:
-      "Workshop pratici per team operativi e manageriali: prompt engineering, AI tooling, governance e uso responsabile. Formazione su Claude, ChatGPT, Gemini, e custom agent interni.",
-    rate: "€1.500–€3.000 / workshop",
+      "Hands-on workshops for operational teams and managers: prompt engineering, AI tools, governance, and responsible use. Training on Claude, ChatGPT, Gemini, and custom internal agents.",
+    rate: "€1,500–€3,000 / workshop",
   },
   {
     id: "05",
     title: "AI Governance & Compliance",
     description:
-      "Framework di governance per AI Act EU: risk assessment, trasparenza, human oversight, audit trail. Policy aziendali per l'uso etico e sicuro dell'AI generativa e agentica.",
-    rate: "A partire da €4.000",
+      "Governance frameworks for the EU AI Act: risk assessment, transparency, human oversight, and audit trails. Company policies for the ethical and secure use of generative and agentic AI.",
+    rate: "Starting at €4,000",
   },
   {
     id: "06",
     title: "Prototyping & MVP",
     description:
-      "Dall'idea a un prototipo funzionante in 3-6 settimane. Per startup o team interni che vogliono validare un concept AI prima di scalare. Stack: LangGraph, Hermes, Weavy, RAG su misura.",
-    rate: "Da €3.000",
+      "From idea to working prototype in 3–6 weeks. For startups and internal teams looking to validate an AI concept before scaling. Stack: LangGraph, Hermes, Weavy, and custom RAG pipelines.",
+    rate: "From €3,000",
   },
 ];
 
 const METRICS = [
-  { value: "$236B", label: "AI Agents market entro il 2034", source: "Precedence Research" },
-  { value: "45%", label: "CAGR annuo del settore", source: "Precedence Research" },
-  { value: "171%", label: "ROI medio implementazioni riuscite", source: "Beam AI" },
-  { value: "81%", label: "Aziende che pianificano agenti AI nel 2026", source: "Anthropic / Material" },
-  { value: "$73B", label: "Mercato AI Consulting entro il 2033", source: "Persistence MR" },
-  { value: "50-60%", label: "Risoluzione autonoma customer service", source: "Gartner 2026" },
+  { value: "$236B", label: "AI agents market by 2034", source: "Precedence Research" },
+  { value: "45%", label: "Annual industry CAGR", source: "Precedence Research" },
+  { value: "171%", label: "Average ROI on successful implementations", source: "Beam AI" },
+  { value: "81%", label: "Companies planning AI agents in 2026", source: "Anthropic / Material" },
+  { value: "$73B", label: "AI consulting market by 2033", source: "Persistence MR" },
+  { value: "50-60%", label: "Autonomous customer service resolution", source: "Gartner 2026" },
 ];
 
 export default function ServicesPage() {
@@ -121,7 +122,7 @@ export default function ServicesPage() {
           </div>
           <div className="mt-10 flex items-center gap-4 border-t border-border pt-10">
             <a
-              href="mailto:eugenio.bellini@example.com"
+              href={CONTACT_MAILTO}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[--brand] text-[--brand-foreground] text-sm font-medium uppercase tracking-wider hover:opacity-80 transition-opacity"
             >
               Book a call
@@ -136,7 +137,7 @@ export default function ServicesPage() {
         </div>
 
         {/* Right — stat block */}
-        <div className="site-rhythm-block flex flex-col justify-center bg-[#fafafa]">
+        <div className="site-rhythm-block flex flex-col justify-center bg-muted">
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-8">
             Market Context
           </p>
@@ -245,9 +246,9 @@ export default function ServicesPage() {
               Designer + Engineer
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              La maggior parte dei consulenti AI viene dalla sola ingegneria o dalla sola
-              strategia. Io arrivo dal design —这意味着 che so progettare sistemi che le persone
-              vogliono davvero usare, non solo che funzionano. UX e orchestrazione AI insieme.
+              My background in design shapes how I build AI systems. I bring user experience
+              and AI orchestration together to create tools that work well and that
+              people want to use.
             </p>
           </div>
           <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
@@ -255,20 +256,20 @@ export default function ServicesPage() {
               Node-Based Native
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              Lavoro ogni giorno su Weavy, una piattaforma node-based per AI system. Multi-agent
-              orchestration, MCP/A2A protocol design, RAG pipelines — non è teoria, è il mio
-              stack quotidiano in Accenture.
+              I work daily with Weavy, a node-based platform for AI systems. Multi-agent
+              orchestration, MCP/A2A protocol design, and RAG pipelines are part of my
+              everyday work at Accenture.
             </p>
           </div>
           <div className="site-rhythm-block">
             <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">
-              Ho già costruito un agente AI
+              Experience building an AI agent
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              <span className="text-foreground font-medium">Framey</span> — AI agent per
-              Frame.io che cerca video per contenuto semantico. Dall&apos;idea al deployment. So cosa
-              vuol dire portare un agente in produzione, con tutti i compromessi e le decisioni
-              reali.
+              <span className="text-foreground font-medium">Framey</span> is an AI agent for
+              Frame.io that finds videos through semantic search. I took it from idea
+              to deployment, working through the trade-offs and practical decisions
+              involved in bringing an agent into production.
             </p>
           </div>
         </div>
@@ -288,22 +289,22 @@ export default function ServicesPage() {
             {
               step: "01",
               title: "Discovery",
-              desc: "Parliamo del tuo business, dei processi che vuoi automatizzare e dei problemi reali. Niente jargon, niente vendita — solo capire se ha senso.",
+              desc: "We discuss your business, the processes you want to automate, and the problems you face. A straightforward conversation to see whether AI is a good fit.",
             },
             {
               step: "02",
               title: "Audit & Roadmap",
-              desc: "Mappo i flussi di lavoro, identifico i punti ad alto ROI per l'AI, stimo effort e tempi. Consegno un documento con priorità e architettura proposta.",
+              desc: "I map workflows, identify where AI could deliver the strongest return, and estimate effort and timelines. You receive a document with priorities and a proposed architecture.",
             },
             {
               step: "03",
               title: "Build & Iterate",
-              desc: "Sviluppo in sprint settimanali con demo frequenti. MVP in 3-6 settimane. Uso il tuo stack o consiglio il migliore per il caso d'uso.",
+              desc: "I build in weekly sprints with frequent demos. An MVP in 3–6 weeks, using your stack or recommending one suited to the use case.",
             },
             {
               step: "04",
               title: "Deploy & Monitor",
-              desc: "Messa in produzione con human-in-the-loop, metriche di performance, logging per audit. Mi assicuro che il sistema sia affidabile e migliorabile.",
+              desc: "Production deployment with human oversight, performance metrics, and audit logging. I make sure the system is reliable and can keep improving.",
             },
           ].map((p) => (
             <div key={p.step} className="grid grid-cols-1 lg:grid-cols-2">
@@ -335,7 +336,7 @@ export default function ServicesPage() {
             Ready to turn your workflows into autonomous systems?
           </h2>
           <a
-            href="mailto:eugenio.bellini@example.com"
+            href={CONTACT_MAILTO}
             className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-[--brand-foreground] text-[--brand] text-sm font-medium uppercase tracking-wider hover:opacity-80 transition-opacity"
           >
             Get in touch → 
