@@ -47,8 +47,8 @@ export default function KawaiiOdpPage() {
                 Kawaii OD 2025
               </h1>
               <p className="text-muted-foreground max-w-md leading-relaxed text-sm mt-8">
-                Campagna visuale brand-led per Kawaii OD 2025. Estetica kawaii giapponese
-                con elementi pop e colori pastello per un look giocoso e contemporaneo.
+                A brand-led visual campaign for Kawaii OD 2025. Japanese kawaii aesthetics
+                meet pop elements and pastel colors for a playful, contemporary look.
               </p>
             </div>
           </div>
@@ -67,23 +67,23 @@ export default function KawaiiOdpPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2 text-[#ff66b2]">
-              01 — Campagna
+              01 — Campaign
             </p>
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">Un look pop e giocoso</h3>
+            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">A playful pop aesthetic</h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              Brand identity che cattura lo spirito kawaii con una palette pastello,
-              tipografia morbida e illustrazioni custom. Studiato per parlare a un
-              pubblico giovane e social-native.
+              A brand identity that captures the kawaii spirit through a pastel palette,
+              soft typography, and custom illustrations. Designed for a young
+              audience raised on social media.
             </p>
           </div>
           <div className="site-rhythm-block">
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2 text-[#ff66b2]">
-              02 — Dettagli
+              02 — Details
             </p>
             <div className="space-y-4 text-sm text-muted-foreground">
-              <div><span className="text-foreground font-medium">Ruolo:</span> Brand Design, Art Direction</div>
-              <div><span className="text-foreground font-medium">Anno:</span> 2024</div>
-              <div><span className="text-foreground font-medium">Concept:</span> Kawaii, pop, pastello, social</div>
+              <div><span className="text-foreground font-medium">Role:</span> Brand Design, Art Direction</div>
+              <div><span className="text-foreground font-medium">Year:</span> 2024</div>
+              <div><span className="text-foreground font-medium">Concept:</span> Kawaii, pop, pastels, social</div>
             </div>
           </div>
         </div>
