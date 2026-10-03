@@ -1,138 +1,42 @@
-"use client";
-
 import Link from "next/link";
-
-const BLOODMOON_RED = "#ff2020";
-
-const galleryImages = [
-  { src: "/bloodmoon-01.png", alt: "BloodMoon — copertina" },
-  { src: "/bloodyrender.png", alt: "BloodMoon — render" },
-  { src: "/bloodmoon-02.png", alt: "BloodMoon — visual identity" },
-  { src: "/bloodmoon-03.png", alt: "BloodMoon — dettaglio" },
-];
-
-const NAV_PILLS = [
-  { label: "UX/UI", href: "/works/ux-ui", active: false },
-  { label: "Brand Design", href: "/works/branding", active: true },
-  { label: "Web Design", href: "/works/web-design", active: false },
-  { label: "Editorial", href: "/works/editorial-design", active: false },
-  { label: "Illustration", href: "/works/illustration", active: false },
-];
+import { ArrowUpRight } from "lucide-react";
 
 export default function BloodmoonPage() {
   return (
-    <main className="bg-background">
-      {/* Fixed nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-        <div className="flex h-16 items-center justify-between px-6 md:px-12">
-          <Link href="/" className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity">
-            Eugenio Bellini
-          </Link>
-          <div className="flex items-center gap-2 overflow-x-auto">
-            {NAV_PILLS.map((p) => (
-              <Link
-                key={p.label}
-                href={p.href}
-                className={`whitespace-nowrap px-4 py-1.5 text-xs font-light transition-colors ${
-                  p.active
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border bg-background hover:bg-muted text-foreground"
-                }`}
-              >
-                {p.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero split */}
-      <section className="min-h-screen bg-background pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
-          <div className="site-rhythm-block flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-4">
-                <span style={{ color: BLOODMOON_RED }}>Visual Identity</span> — 2024
-              </p>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.05]">
-                BloodMoon
-              </h1>
-              <p className="text-muted-foreground max-w-md leading-relaxed text-sm mt-8">
-                Visual identity per l&apos;album di debutto di Yukai, DJ milanese.
-                Unisce l&apos;energia brutale della tekno con un immaginario oscuro
-                e visionario. La luna rossa come simbolo di trasformazione.
-              </p>
-            </div>
-            <div className="mt-10 flex items-center gap-4 border-t border-border pt-10">
-              <a
-                href="https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium uppercase tracking-wider hover:opacity-80 transition-opacity"
-                style={{ backgroundColor: BLOODMOON_RED, color: "#ffffff" }}
-              >
-                View on Behance →
-              </a>
-            </div>
-          </div>
-          <div className="flex items-center justify-center p-12 lg:p-20 bg-[#0b0b0f]">
+    <main className="bloodmoon-page bg-background text-foreground">
+      <nav className="flex items-center justify-between gap-6 px-6 py-6 md:px-12" aria-label="Project navigation"><Link href="/" className="text-sm">Eugenio Bellini</Link><Link href="/#works" className="text-sm text-muted-foreground hover:text-foreground">All projects ↗</Link></nav>
+      <header className="site-rhythm-block grid items-end gap-8 md:grid-cols-2">
+        <div><p className="mb-4 text-sm text-muted-foreground">Visual identity / Yukai</p><h1 className="text-5xl font-medium tracking-tight md:text-7xl lg:text-8xl">BloodMoon</h1></div>
+        <div className="max-w-md md:justify-self-end"><p className="text-sm leading-relaxed text-muted-foreground">A visual identity for Milan-based DJ Yukai. The raw energy of tekno, shaped through gothic lettering and a red moon.</p><a href="https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-3 text-sm underline underline-offset-4">View on Behance <ArrowUpRight size={16} /></a></div>
+      </header>
+      <figure className="mx-auto max-w-6xl px-6 pb-12 md:px-12 md:pb-24">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/bloodyrender.png" alt="BloodMoon metallic gothic lettering with violet and red highlights" className="mx-auto w-full max-w-4xl" />
+        <figcaption className="mt-4 flex justify-between gap-4 text-xs text-muted-foreground"><span>BloodMoon / Lettering study</span><span>Visual identity</span></figcaption>
+      </figure>
+      <section className="site-rhythm-block grid items-center gap-10 border-t border-border lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]" aria-labelledby="bloodmoon-wordmark">
+        <div className="max-w-sm"><p className="mb-4 text-xs text-muted-foreground">The wordmark</p><h2 id="bloodmoon-wordmark" className="text-3xl font-medium tracking-tight md:text-4xl">Sharp forms.<br />A darker voice.</h2><p className="mt-5 text-sm leading-relaxed text-muted-foreground">Pointed letterforms and deep red tones bring the music&apos;s intensity into the identity.</p></div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/bloodmoon-01.png" alt="BloodMoon red gothic wordmark on black" className="mx-auto w-full max-w-xl" />
+      </section>
+      <section className="site-rhythm-block border-t border-border" aria-labelledby="bloodmoon-mood">
+        <div className="mb-12 grid gap-5 md:grid-cols-2"><h2 id="bloodmoon-mood" className="text-3xl font-medium tracking-tight md:text-4xl">Inside the atmosphere.</h2><p className="max-w-md text-sm leading-relaxed text-muted-foreground md:justify-self-end">A reference board exploring red moons, urban mysticism, and gothic imagery. These references set the mood and color direction.</p></div>
+        <figure className="mx-auto max-w-4xl">
+          <div className="bloodmoon-mood-crop">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/bloodmoon-01.png"
-              alt="BloodMoon"
-              className="w-full h-full object-contain p-4 max-h-[60vh]"
-            />
+            <img src="/bloodmoon-02.png" alt="BloodMoon inspiration board with red moons, gothic references, and a red and grey palette" />
           </div>
-        </div>
+          <figcaption className="mt-6 text-xs text-muted-foreground">Visual research / Reference imagery</figcaption>
+        </figure>
       </section>
-
-      {/* Gallery 4-up */}
-      <section className="border-t border-border">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {galleryImages.map((img, i) => (
-            <div
-              key={i}
-              className={`relative aspect-square ${i < 2 ? "border-b border-border" : ""} ${i % 2 === 0 ? "md:border-r border-border" : ""}`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-contain p-4 bg-[#0b0b0f]"
-              />
-            </div>
-          ))}
-        </div>
+      <section className="site-rhythm-block grid items-center gap-10 border-t border-border lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]" aria-labelledby="bloodmoon-artwork">
+        <figure className="bloodmoon-art-crop">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/bloodmoon-03.png" alt="Red speaker encircled by a sculptural gothic frame" />
+        </figure>
+        <div className="max-w-sm lg:justify-self-end"><p className="mb-4 text-xs text-muted-foreground">Artwork</p><h2 id="bloodmoon-artwork" className="text-3xl font-medium tracking-tight md:text-4xl">Sound takes form.</h2><p className="mt-5 text-sm leading-relaxed text-muted-foreground">A speaker becomes the center of the visual world, surrounded by a spiked frame in red and violet.</p></div>
       </section>
-
-      {/* Details */}
-      <section className="border-t border-border">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2" style={{ color: BLOODMOON_RED }}>
-              01 — Concept
-            </p>
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">Un&apos;alba artistica</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              &ldquo;Bloodmoon&rdquo; rappresenta l&apos;alba artistica di Yukai. La luna rossa,
-              simbolo ciclico di trasformazione, illumina la notte e scandisce il ritmo
-              ipnotico dei suoni. Estetica che fonde misticismo e urbanità, con richiami
-              all&apos;immaginario gotico e decadente.
-            </p>
-          </div>
-          <div className="site-rhythm-block">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2" style={{ color: BLOODMOON_RED }}>
-              02 — Motion
-            </p>
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">CD animato</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              Il disco è stato creato in Photoshop e animato in After Effects per simulare
-              il movimento reale del vinile. Lettering curato in Illustrator, elementi
-              grafici essenziali e simbolici per rafforzare l&apos;identità tekno.
-            </p>
-          </div>
-        </div>
-      </section>
+      <footer className="site-rhythm-header flex justify-between gap-6 border-t border-border text-sm"><Link href="/#works" className="hover:text-brand">Back to selected work</Link><span className="text-muted-foreground">BloodMoon / Yukai</span></footer>
     </main>
   );
 }
