@@ -13,7 +13,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "MINIDEV – memo recorder portatile",
+    title: "MINIDEV – portable memo recorder",
     href: "https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile",
     imageSrc: "/minidev.png",
     description: "Portable memo recorder, product UI",
