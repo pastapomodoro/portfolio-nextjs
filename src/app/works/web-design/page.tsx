@@ -34,6 +34,7 @@ const projects: Project[] = [
 export default function Page() {
   return (
     <main className="site-rhythm-block mx-auto max-w-6xl">
+      <Link href="/#works" className="mb-8 inline-block text-sm underline underline-offset-4">Back to selected work</Link>
       <div className="mb-12 flex flex-wrap items-center justify-between gap-8 md:mb-16">
         <div>
           <h1 className="text-5xl md:text-7xl font-light tracking-wide text-foreground mb-4">Web Design</h1>
@@ -46,11 +47,11 @@ export default function Page() {
           <Link href="/works/editorial-design" className="rounded-full px-5 py-2 text-sm font-light border border-border bg-background hover:bg-muted text-foreground transition-colors">Editorial</Link>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, i) => {
           const card = (
-            <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+            <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ">
               <div
                 className={`${project.mediaClassName ?? "aspect-[16/10]"} relative overflow-hidden ${project.canvasBg ? "" : "bg-muted/50"}`}
                 style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
@@ -62,8 +63,8 @@ export default function Page() {
                     width={1920}
                     height={1080}
                     className={`h-full w-full transition-transform duration-700 ${
-                      project.disableHoverZoom ? "scale-100" : "group-hover:scale-105"
-                    } ${project.imageClassName ?? "object-cover"}`}
+                      project.disableHoverZoom ? "scale-100" : "scale-100"
+                    } ${project.imageClassName ?? "object-contain"}`}
                     style={{ objectPosition: project.objectPosition }}
                   />
                 ) : (

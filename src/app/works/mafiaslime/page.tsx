@@ -1,92 +1,24 @@
-"use client";
+import { ProjectFooter, ProjectNav, ProjectSource } from "@/components/ProjectMedia";
 
-import Link from "next/link";
-
-const NAV_PILLS = [
-  { label: "UX/UI", href: "/works/ux-ui", active: false },
-  { label: "Brand Design", href: "/works/branding", active: false },
-  { label: "Web Design", href: "/works/web-design", active: true },
-  { label: "Editorial", href: "/works/editorial-design", active: false },
-  { label: "Illustration", href: "/works/illustration", active: false },
-];
+const SOURCE = "https://www.figma.com/proto/Xdqen5eDiYpNobr0ozXieT/bellini_personale--Copy-?node-id=39-198&p=f&t=j0KKPirDqASmgpdX-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=134%3A16";
 
 export default function MafiaslimePage() {
   return (
     <main className="bg-background">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-        <div className="flex h-16 items-center justify-between px-6 md:px-12">
-          <Link href="/" className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity">
-            Eugenio Bellini
-          </Link>
-          <div className="flex items-center gap-2 overflow-x-auto">
-            {NAV_PILLS.map((p) => (
-              <Link
-                key={p.label}
-                href={p.href}
-                className={`whitespace-nowrap px-4 py-1.5 text-xs font-light transition-colors ${
-                  p.active
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border bg-background hover:bg-muted text-foreground"
-                }`}
-              >
-                {p.label}
-              </Link>
-            ))}
-          </div>
+      <ProjectNav />
+      <header className="site-rhythm-block mx-auto grid max-w-[1400px] items-end gap-8 md:grid-cols-2">
+        <div><p className="mb-4 text-sm text-muted-foreground">Web design / Figma prototype</p><h1 className="text-5xl font-medium tracking-tight md:text-7xl">MafiaSlime II</h1></div>
+        <div className="max-w-md md:justify-self-end">
+          <p className="mb-6 text-base leading-relaxed text-muted-foreground">A website concept for K100, bringing music, tour dates, and merchandise into one interface. Black-and-white photography and red lettering shape the visual direction.</p>
+          <ProjectSource href={SOURCE} label="Open Figma prototype" />
         </div>
-      </nav>
-
-      <section className="min-h-screen bg-background pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
-          <div className="site-rhythm-block flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-4">
-                <span className="text-[#00cc66]">Web Design</span> — 2024
-              </p>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.05]">
-                MafiaSlime II
-              </h1>
-              <p className="text-muted-foreground max-w-md leading-relaxed text-sm mt-8">
-                A website for MafiaSlime II, an online game. A playful, colorful design
-                with dynamic elements for an engaging browsing experience.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center justify-center p-12 lg:p-20 bg-[#0b0b0f]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/mafiaslime.png"
-              alt="MafiaSlime II"
-              className="w-full h-full object-contain p-4 max-h-[60vh]"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2 text-[#00cc66]">
-              01 — Overview
-            </p>
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">A website for the community</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              A design that captures the energy of the game and its community.
-              A dynamic interface reflects the brand&apos;s lively, competitive tone.
-            </p>
-          </div>
-          <div className="site-rhythm-block">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2 text-[#00cc66]">
-              02 — Details
-            </p>
-            <div className="space-y-4 text-sm text-muted-foreground">
-              <div><span className="text-foreground font-medium">Role:</span> UI/UX Design, Frontend Development</div>
-              <div><span className="text-foreground font-medium">Tools:</span> Figma, Framer</div>
-              <div><span className="text-foreground font-medium">Concept:</span> Playful, dynamic, colorful</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </header>
+      <figure className="mx-auto max-w-[1400px] px-6 pb-12 md:px-12 md:pb-20">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/mafiaslime.png" alt="MafiaSlime II website concept for K100 with shop, tickets, and project navigation" width={1628} height={1094} className="block h-auto w-full" />
+        <figcaption className="mt-4 text-sm text-muted-foreground">Homepage concept. Explore the screens and interactions in the Figma prototype.</figcaption>
+      </figure>
+      <ProjectFooter href={SOURCE} label="Open Figma prototype" />
     </main>
   );
 }

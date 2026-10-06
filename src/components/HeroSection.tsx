@@ -18,7 +18,7 @@ export default function HeroSection() {
   return (
     <>
       <nav className="folio-nav" aria-label="Main navigation">
-        <div className="folio-nav-links"><a href="#works">Work <sup>04</sup></a><a href="#about">About</a><Link href="/services">Services</Link><button type="button" className="folio-nav-contact" onClick={() => window.dispatchEvent(new Event("open-contact-modal"))} aria-label="Contact">Contact <ArrowUpRight size={15} /></button></div>
+        <div className="folio-nav-links"><a href="#works">Work <sup>04</sup></a><a href="#about">About</a><Link href="/services">Practice</Link><button type="button" className="folio-nav-contact" onClick={() => window.dispatchEvent(new Event("open-contact-modal"))} aria-label="Contact">Contact <ArrowUpRight size={15} /></button></div>
       </nav>
       <section id="home" className="cinema-hero" aria-label="Eugenio Bellini, designer based in Milan">
         <video ref={video} className="cinema-film" src="/comp2.mp4" poster="/GameMenu.png" loop muted playsInline preload="metadata" />

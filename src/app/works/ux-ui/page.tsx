@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image"
 import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas"
 
@@ -40,6 +41,7 @@ const projects: Project[] = [
 export default function Page() {
   return (
     <main className="site-rhythm-block mx-auto max-w-6xl">
+      <Link href="/#works" className="mb-8 inline-block text-sm underline underline-offset-4">Back to selected work</Link>
       <div className="mb-12 flex flex-wrap items-center justify-between gap-8 md:mb-16">
         <div>
           <h1 className="text-5xl md:text-7xl font-light tracking-wide text-foreground mb-4">UX/UI</h1>
@@ -56,7 +58,7 @@ export default function Page() {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, i) => {
           const card = (
-            <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+            <div className="group rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ">
               <div
                 className={`aspect-[16/10] relative overflow-hidden ${project.canvasBg ? "" : "bg-muted/50"}`}
                 style={project.canvasBg ? { backgroundColor: project.canvasBg } : undefined}
@@ -67,7 +69,7 @@ export default function Page() {
                     alt={project.title}
                     width={1920}
                     height={1080}
-                    className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? "object-cover"} ${project.objectPositionClass ?? ""}`}
+                    className={`h-full w-full transition-transform duration-700 scale-100 ${project.imageClassName ?? "object-contain"} ${project.objectPositionClass ?? ""}`}
                     style={{ objectPosition: project.objectPosition }}
                   />
                 ) : (

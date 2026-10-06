@@ -1,348 +1,84 @@
-"use client";
-
 import Link from "next/link";
-import { CONTACT_MAILTO } from "@/lib/site-contact";
+import { CONTACT_MAILTO, CV_HREF } from "@/lib/site-contact";
 
-const SERVICES = [
+const AREAS = [
   {
-    id: "01",
-    title: "AI Workflow Audit",
-    description:
-      "I map business processes to identify where AI can automate tasks, reduce costs, and speed up decisions. You receive a report with priorities, estimated effort, and expected ROI.",
-    rate: "Starting at €2,500",
+    title: "Visual identity",
+    description: "Lettering, colour, and imagery for music and personal projects. I develop a visual direction through references, sketches, and applications.",
+    tools: "Photoshop, Illustrator",
+    project: "BloodMoon",
+    href: "/works/bloodmoon",
   },
   {
-    id: "02",
-    title: "Custom AI Agents",
-    description:
-      "I design and build AI agents for your domain: customer support automation, lead qualification, content operations, and compliance review. Multi-agent architectures with MCP/A2A orchestration.",
-    rate: "Projects from €5,000",
+    title: "Interfaces & web",
+    description: "Layouts and interactive prototypes, from a game menu to a small brand website. I work on typography, navigation, and the details of each screen.",
+    tools: "Figma",
+    project: "MafiaSlime II",
+    href: "/works/mafiaslime",
   },
   {
-    id: "03",
-    title: "AI System Integration",
-    description:
-      "I integrate LLMs and AI agents into your existing systems, including CRM, ERP, and no-code platforms. Node-based workflows in Weavy or a custom orchestration layer.",
-    rate: "Projects from €3,000",
+    title: "Generative visuals",
+    description: "Image and video experiments for creative production, including automotive and fashion. I refine prompts, compare outputs, and build ComfyUI and Weavy workflows around the visual brief.",
+    tools: "ComfyUI, Weavy, Adobe tools",
   },
   {
-    id: "04",
-    title: "Team Training & Adoption",
-    description:
-      "Hands-on workshops for operational teams and managers: prompt engineering, AI tools, governance, and responsible use. Training on Claude, ChatGPT, Gemini, and custom internal agents.",
-    rate: "€1,500–€3,000 / workshop",
+    title: "Creative prototyping",
+    description: "Product concepts and small internal tools. I use Figma to explore form and interaction, and AI-assisted development to try ideas in code.",
+    tools: "Figma, Codex, Claude Code",
+    project: "MINIDEV",
+    href: "/works/minidev",
   },
-  {
-    id: "05",
-    title: "AI Governance & Compliance",
-    description:
-      "Governance frameworks for the EU AI Act: risk assessment, transparency, human oversight, and audit trails. Company policies for the ethical and secure use of generative and agentic AI.",
-    rate: "Starting at €4,000",
-  },
-  {
-    id: "06",
-    title: "Prototyping & MVP",
-    description:
-      "From idea to working prototype in 3–6 weeks. For startups and internal teams looking to validate an AI concept before scaling. Stack: LangGraph, Hermes, Weavy, and custom RAG pipelines.",
-    rate: "From €3,000",
-  },
-];
-
-const METRICS = [
-  { value: "$236B", label: "AI agents market by 2034", source: "Precedence Research" },
-  { value: "45%", label: "Annual industry CAGR", source: "Precedence Research" },
-  { value: "171%", label: "Average ROI on successful implementations", source: "Beam AI" },
-  { value: "81%", label: "Companies planning AI agents in 2026", source: "Anthropic / Material" },
-  { value: "$73B", label: "AI consulting market by 2033", source: "Persistence MR" },
-  { value: "50-60%", label: "Autonomous customer service resolution", source: "Gartner 2026" },
 ];
 
 export default function ServicesPage() {
   return (
-    <main className="bg-background min-h-screen">
-      {/* ── Fixed Nav ───────────────────────────────────── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-        <div className="flex h-16 items-center justify-between px-6 md:px-12">
-          <Link
-            href="/"
-            className="text-sm font-medium tracking-tight hover:opacity-60 transition-opacity"
-          >
-            Eugenio Bellini
-          </Link>
-          <div className="flex items-center gap-8">
-            <Link
-              href="/"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Work
-            </Link>
-            <Link
-              href="/services"
-              className="text-sm text-foreground font-medium transition-colors"
-            >
-              Services
-            </Link>
-            <Link
-              href="/#about"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/#contact"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Contact
-            </Link>
+    <main className="min-h-screen bg-background">
+      <nav aria-label="Main navigation" className="border-b border-border">
+        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 py-6 md:px-12">
+          <Link href="/" className="text-sm font-medium tracking-tight hover:opacity-60">Eugenio Bellini</Link>
+          <div className="flex flex-wrap items-center gap-5 text-sm md:gap-8">
+            <Link href="/#works" className="text-muted-foreground hover:text-foreground">Work</Link>
+            <Link href="/services" aria-current="page">Practice</Link>
+            <Link href="/#about" className="text-muted-foreground hover:text-foreground">About</Link>
+            <a href={CONTACT_MAILTO} className="text-muted-foreground hover:text-foreground">Contact</a>
           </div>
         </div>
       </nav>
 
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="pt-16 min-h-[80vh] grid grid-cols-1 lg:grid-cols-2">
-        {/* Left */}
-        <div className="site-rhythm-block flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border">
-          <div>
-            <p className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
-              <span aria-hidden className="inline-block size-1.5 bg-brand" />
-              AI Consulting & Agent Development
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.05] mb-8">
-              I turn workflows
-              <br />
-              into autonomous
-              <br />
-              <span className="text-brand">systems.</span>
-            </h1>
-            <p className="text-muted-foreground max-w-md leading-relaxed">
-              Designer turned AI System Analyst. I design, build, and deploy AI agents and
-              multi-agent orchestration systems for companies that need to move beyond
-              chatbots and into production-grade automation.
-            </p>
-          </div>
-          <div className="mt-10 flex items-center gap-4 border-t border-border pt-10">
-            <a
-              href={CONTACT_MAILTO}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[--brand] text-[--brand-foreground] text-sm font-medium uppercase tracking-wider hover:opacity-80 transition-opacity"
-            >
-              Book a call
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-sm font-medium uppercase tracking-wider hover:bg-muted transition-colors"
-            >
-              View services
-            </a>
-          </div>
-        </div>
+      <section className="site-rhythm-block mx-auto max-w-[1200px]">
+        <h1 className="text-5xl font-medium tracking-tight md:text-7xl">My practice.</h1>
+        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          I work across graphic design, interfaces, and generative imagery.
+          Some projects start with a visual reference, others with an interaction
+          I want to explore.
+        </p>
+      </section>
 
-        {/* Right — stat block */}
-        <div className="site-rhythm-block flex flex-col justify-center bg-muted">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-8">
-            Market Context
-          </p>
-          <div className="space-y-6">
-            <div>
-              <p className="text-6xl md:text-7xl font-medium tracking-tight text-[--brand]">
-                $236B
-              </p>
-              <p className="text-sm text-muted-foreground mt-1">
-                AI Agents market by 2034{" "}
-                <span className="font-mono text-[10px]">— Precedence Research</span>
-              </p>
+      <section id="services" aria-label="Areas of work" className="mx-auto max-w-[1200px] scroll-mt-6 px-6 md:px-12">
+        {AREAS.map((area) => (
+          <article key={area.title} className="grid gap-5 border-t border-border py-9 md:grid-cols-[1fr_1.4fr] md:gap-12 md:py-12">
+            <h2 className="text-2xl font-medium tracking-tight md:text-3xl">{area.title}</h2>
+            <div className="max-w-xl">
+              <p className="text-base leading-relaxed text-muted-foreground">{area.description}</p>
+              <p className="mt-5 text-sm text-muted-foreground">{area.tools}</p>
+              {area.href && <Link href={area.href} className="mt-5 inline-block text-sm underline underline-offset-4 hover:opacity-60">View {area.project}</Link>}
             </div>
-            <div className="border-t border-border pt-6">
-              <p className="text-6xl md:text-7xl font-medium tracking-tight">
-                171%<span className="text-2xl md:text-3xl text-muted-foreground"> avg ROI</span>
-              </p>
-              <p className="text-sm text-muted-foreground mt-1">
-                on successful AI agent implementations{" "}
-                <span className="font-mono text-[10px]">— Beam AI</span>
-              </p>
-            </div>
-          </div>
+          </article>
+        ))}
+      </section>
+
+      <section aria-labelledby="background-title" className="site-rhythm-block mx-auto grid max-w-[1200px] gap-5 md:grid-cols-[1fr_1.4fr] md:gap-12">
+        <h2 id="background-title" className="text-2xl font-medium tracking-tight md:text-3xl">Background</h2>
+        <div className="max-w-xl text-base leading-relaxed text-muted-foreground">
+          <p>I studied Graphic Design &amp; Art Direction at NABA in Milan. At Accenture Song, I worked on generative visual production, creative workflows, and prototypes for internal tools.</p>
+          <a href={CV_HREF} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-foreground underline underline-offset-4 hover:opacity-60">Download CV</a>
         </div>
       </section>
 
-      {/* ── Services Grid ────────────────────────────────── */}
-      <section id="services" className="border-t border-border">
-        <div className="border-b border-border">
-          <div className="site-rhythm-header">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
-              Services
-            </p>
-          </div>
-        </div>
-
-        <div className="divide-y divide-border">
-          {SERVICES.map((s) => (
-            <div
-              key={s.id}
-              className="grid grid-cols-1 lg:grid-cols-2"
-            >
-              <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border flex items-start justify-between">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2">
-                    {s.id} — {s.rate}
-                  </p>
-                  <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
-                    {s.title}
-                  </h2>
-                </div>
-              </div>
-              <div className="site-rhythm-block flex items-center">
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                  {s.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Market Data ──────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="border-b border-border">
-          <div className="site-rhythm-header flex items-center justify-between">
-            <h2 className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
-              The market opportunity
-            </h2>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {METRICS.map((m, i) => (
-            <div
-              key={i}
-              className={`site-rhythm-block-tight ${
-                i % 3 < 2 ? "border-r border-border" : ""
-              } ${i < 3 ? "border-b border-border" : ""}`}
-            >
-              <p className="text-4xl md:text-5xl font-medium tracking-tight text-[--brand] mb-2">
-                {m.value}
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {m.label}
-              </p>
-              <p className="text-[10px] text-muted-foreground/50 font-mono mt-1">
-                {m.source}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Why Me ───────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="border-b border-border">
-          <div className="site-rhythm-header">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
-              Why work with me
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">
-              Designer + Engineer
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              My background in design shapes how I build AI systems. I bring user experience
-              and AI orchestration together to create tools that work well and that
-              people want to use.
-            </p>
-          </div>
-          <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">
-              Node-Based Native
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              I work daily with Weavy, a node-based platform for AI systems. Multi-agent
-              orchestration, MCP/A2A protocol design, and RAG pipelines are part of my
-              everyday work at Accenture.
-            </p>
-          </div>
-          <div className="site-rhythm-block">
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">
-              Experience building an AI agent
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              <span className="text-foreground font-medium">Framey</span> is an AI agent for
-              Frame.io that finds videos through semantic search. I took it from idea
-              to deployment, working through the trade-offs and practical decisions
-              involved in bringing an agent into production.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Process ───────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="border-b border-border">
-          <div className="site-rhythm-header">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
-              How it works
-            </p>
-          </div>
-        </div>
-        <div className="divide-y divide-border">
-          {[
-            {
-              step: "01",
-              title: "Discovery",
-              desc: "We discuss your business, the processes you want to automate, and the problems you face. A straightforward conversation to see whether AI is a good fit.",
-            },
-            {
-              step: "02",
-              title: "Audit & Roadmap",
-              desc: "I map workflows, identify where AI could deliver the strongest return, and estimate effort and timelines. You receive a document with priorities and a proposed architecture.",
-            },
-            {
-              step: "03",
-              title: "Build & Iterate",
-              desc: "I build in weekly sprints with frequent demos. An MVP in 3–6 weeks, using your stack or recommending one suited to the use case.",
-            },
-            {
-              step: "04",
-              title: "Deploy & Monitor",
-              desc: "Production deployment with human oversight, performance metrics, and audit logging. I make sure the system is reliable and can keep improving.",
-            },
-          ].map((p) => (
-            <div key={p.step} className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="site-rhythm-block border-b lg:border-b-0 lg:border-r border-border">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono mb-2">
-                  Step {p.step}
-                </p>
-                <h3 className="text-xl md:text-2xl font-medium tracking-tight">
-                  {p.title}
-                </h3>
-              </div>
-              <div className="site-rhythm-block">
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                  {p.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="border-t border-border bg-[--brand] text-[--brand-foreground]">
-        <div className="site-rhythm-block flex flex-col items-center text-center gap-6 py-20 md:py-28">
-          <p className="text-xs uppercase tracking-[0.2em] font-mono opacity-60">
-            Let&apos;s build something
-          </p>
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight max-w-2xl">
-            Ready to turn your workflows into autonomous systems?
-          </h2>
-          <a
-            href={CONTACT_MAILTO}
-            className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-[--brand-foreground] text-[--brand] text-sm font-medium uppercase tracking-wider hover:opacity-80 transition-opacity"
-          >
-            Get in touch → 
-          </a>
-        </div>
-      </section>
+      <footer className="site-rhythm-header flex flex-wrap items-center justify-between gap-5 border-t border-border text-sm">
+        <Link href="/#works" className="underline underline-offset-4 hover:opacity-60">Back to work</Link>
+        <a href={CONTACT_MAILTO} className="underline underline-offset-4 hover:opacity-60">Email me</a>
+      </footer>
     </main>
   );
 }

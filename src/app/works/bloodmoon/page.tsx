@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProjectFooter, ProjectVideo } from "@/components/ProjectMedia";
 import { ArrowUpRight } from "lucide-react";
 
 export default function BloodmoonPage() {
@@ -22,21 +23,27 @@ export default function BloodmoonPage() {
       <section className="site-rhythm-block border-t border-border" aria-labelledby="bloodmoon-mood">
         <div className="mb-12 grid gap-5 md:grid-cols-2"><h2 id="bloodmoon-mood" className="text-3xl font-medium tracking-tight md:text-4xl">Inside the atmosphere.</h2><p className="max-w-md text-sm leading-relaxed text-muted-foreground md:justify-self-end">A reference board exploring red moons, urban mysticism, and gothic imagery. These references set the mood and color direction.</p></div>
         <figure className="mx-auto max-w-4xl">
-          <div className="bloodmoon-mood-crop">
+          <div className="w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bloodmoon-02.png" alt="BloodMoon inspiration board with red moons, gothic references, and a red and grey palette" />
+            <img className="h-auto w-full" src="/bloodmoon-02.png" alt="BloodMoon inspiration board with red moons, gothic references, and a red and grey palette" />
           </div>
           <figcaption className="mt-6 text-xs text-muted-foreground">Visual research / Reference imagery</figcaption>
         </figure>
       </section>
       <section className="site-rhythm-block grid items-center gap-10 border-t border-border lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]" aria-labelledby="bloodmoon-artwork">
-        <figure className="bloodmoon-art-crop">
+        <figure className="mx-auto w-full max-w-3xl">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/bloodmoon-03.png" alt="Red speaker encircled by a sculptural gothic frame" />
+          <img className="h-auto w-full" src="/bloodmoon-03.png" alt="Red speaker encircled by a sculptural gothic frame" />
         </figure>
         <div className="max-w-sm lg:justify-self-end"><p className="mb-4 text-xs text-muted-foreground">Artwork</p><h2 id="bloodmoon-artwork" className="text-3xl font-medium tracking-tight md:text-4xl">Sound takes form.</h2><p className="mt-5 text-sm leading-relaxed text-muted-foreground">A speaker becomes the center of the visual world, surrounded by a spiked frame in red and violet.</p></div>
       </section>
-      <footer className="site-rhythm-header flex justify-between gap-6 border-t border-border text-sm"><Link href="/#works" className="hover:text-brand">Back to selected work</Link><span className="text-muted-foreground">BloodMoon / Yukai</span></footer>
+      <section aria-labelledby="bloodmoon-motion" className="site-rhythm-block border-t border-border">
+        <h2 id="bloodmoon-motion" className="mb-8 text-3xl font-medium tracking-tight">Motion studies</h2>
+        <div className="mx-auto grid max-w-6xl gap-10">
+          <ProjectVideo href="https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity" poster="/bloodmoon-03.png" title="Motion studies and animated music player on Behance" />
+        </div>
+      </section>
+      <ProjectFooter href="https://www.behance.net/gallery/234642147/BloodMoon-VIsual-Identity" />
     </main>
   );
 }

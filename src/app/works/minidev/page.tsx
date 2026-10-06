@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProjectFooter, ProjectVideo } from "@/components/ProjectMedia";
 import MinidevDrawing from "@/components/MinidevDrawing";
 import { MINIDEV_CANVAS_BG } from "@/lib/minidev-canvas";
 
@@ -71,10 +72,26 @@ export default function MinidevPage() {
           </dl>
         </div>
       </section>
-      <footer className="site-rhythm-header flex flex-wrap justify-between gap-4 border-t border-border text-sm">
-        <Link href="/#works" className="underline underline-offset-4 hover:opacity-60">Back to selected work</Link>
-        <span className="text-muted-foreground">MINIDEV / Figma concept</span>
-      </footer>
+      <section aria-labelledby="minidev-gallery" className="site-rhythm-block border-t border-border">
+        <h2 id="minidev-gallery" className="mb-8 text-3xl font-medium tracking-tight">Product studies</h2>
+        <div className="mx-auto grid max-w-5xl items-start gap-8 md:grid-cols-2">
+          <figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/minidev-01.png" alt="MINIDEV front view showing the screen, speaker and recording controls" width={632} height={594} loading="lazy" className="h-auto w-full" />
+            <figcaption className="mt-4 text-sm text-muted-foreground">Front view and controls</figcaption>
+          </figure>
+          <figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/minidev-02.png" alt="MINIDEV concept shown in a hand to illustrate its compact proportions" width={1024} height={1536} loading="lazy" className="h-auto w-full" />
+            <figcaption className="mt-4 text-sm text-muted-foreground">Handheld concept</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section aria-labelledby="minidev-motion" className="site-rhythm-block mx-auto max-w-6xl border-t border-border">
+        <h2 id="minidev-motion" className="mb-8 text-3xl font-medium tracking-tight">Motion study</h2>
+        <ProjectVideo href="https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile" poster="/minidev.png" title="MINIDEV animation from the original Behance project" />
+      </section>
+      <ProjectFooter href="https://www.behance.net/gallery/226579647/MINIDEV-memo-recorder-portatile" />
     </main>
   );
 }
